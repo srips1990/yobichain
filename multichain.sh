@@ -18,7 +18,7 @@ rpcport=61172
 explorerport=2750
 adminNodeName=$chainname'_Admin'
 explorerDisplayName=$chainname
-
+phpinipath='/etc/php/7.0/apache2/php.ini'
 
 echo '----------------------------------------'
 echo -e ${CYAN}${bold}'INSTALLING PREREQUISITES.....'${normal}${LIGHTYELLOW}
@@ -28,6 +28,10 @@ sudo apt-get --assume-yes update
 sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php-curl sqlite3 libsqlite3-dev python-dev python-pip
 sudo pip install --upgrade pip
 sudo pip install pycrypto
+
+sudo sed -ie 's/;extension=php_curl.dll/extension=php_curl.dll/g' $phpinipath
+
+sudo service apache2 restart
 
 echo ''
 echo ''
@@ -65,7 +69,6 @@ echo '----------------------------------------'
 
 sudo bash -c 'chmod -R 777 /var/www/html'
 wget --no-verbose http://www.multichain.com/download/multichain-latest.tar.gz
-sleep 10
 sudo bash -c 'tar xvf multichain-latest.tar.gz'
 sudo bash -c 'cp multichain-1.0-alpha*/multichain* /usr/local/bin/'
 
