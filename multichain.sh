@@ -206,7 +206,6 @@ cd /var/www/html/multichain-explorer
 sudo bash -c 'python -m Mce.abe --config '$chainname'.conf --commit-bytes 100000 --no-serve'
 sleep 5
 echo -ne '\n' | sudo bash -c 'nohup python -m Mce.abe --config '$chainname'.conf > /dev/null 2>/dev/null &'
-exit 0
 
 # Restarting Apache to load the changes
 # sudo service apache2 restart
