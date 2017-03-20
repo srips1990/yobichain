@@ -1,4 +1,13 @@
 #!/bin/bash
+export TERM=xterm-color
+
+NC='\033[0m' # No Color
+RED='\033[0;31m'
+LIGHTGREEN='\033[1;32m'
+CYAN='\033[0;36m'
+LIGHTYELLOW='\033[1;33m'
+bold=$(tput bold)
+normal=$(tput sgr0)
 
 username='yobiuser'
 passwd=$1
