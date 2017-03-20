@@ -37,7 +37,7 @@ echo ''
 echo ''
 echo ''
 
-
+sleep 3
 echo '----------------------------------------'
 echo -e ${CYAN}${bold}'CONFIGURING FIREWALL.....'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
@@ -65,7 +65,7 @@ echo '----------------------------------------'
 
 sudo bash -c 'chmod -R 777 /var/www/html'
 wget --no-verbose http://www.multichain.com/download/multichain-latest.tar.gz
-sleep 15
+sleep 10
 sudo bash -c 'tar xvf multichain-latest.tar.gz'
 sudo bash -c 'cp multichain-1.0-alpha*/multichain* /usr/local/bin/'
 
