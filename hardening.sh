@@ -1,7 +1,7 @@
 #!/bin/bash
 
-$username=yobiuser
-
+username='yobiuser'
+passwd=$1
 
 echo '----------------------------------------'
 echo -e ${CYAN}${bold}'UPDATING THE SYSTEM:'${normal}${LIGHTYELLOW}
@@ -28,7 +28,8 @@ echo '----------------------------------------'
 
 sudo useradd -d /home/$username -s /bin/bash -m $username
 sudo usermod -a -G sudo $username
-sudo passwd $username
+echo $username":"$passwd | sudo chpasswd
+#sudo passwd $username
 
 echo '$username ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
