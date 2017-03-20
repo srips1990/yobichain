@@ -145,3 +145,11 @@ echo '----------------------------------------'
 
 sudo apt-get update
 sudo apt-get install --only-upgrade bash
+
+echo ''
+echo ''
+echo -e ${CYAN}${bold}'----------HARDENING SUCCESSFUL----------'${normal}${NC}
+echo ''
+echo ''
+echo ''
+echo ''
