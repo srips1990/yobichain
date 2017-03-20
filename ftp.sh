@@ -23,7 +23,7 @@ sudo apt-get --assume-yes install vsftpd
 
 echo ''
 echo ''
-echo '----------------------------------------'
+echo '----------------------------------------'${normal}${NC}
 echo ''
 echo ''
 echo ''
@@ -48,7 +48,7 @@ sudo chmod u+w /var/www/html
 
 echo ''
 echo ''
-echo '----------------------------------------'
+echo '----------------------------------------'${normal}${NC}
 echo ''
 echo ''
 echo ''
