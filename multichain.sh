@@ -207,6 +207,7 @@ cd /home/$username
 
 git clone https://github.com/MultiChain/multichain-explorer.git
 cd multichain-explorer
+su -l $username -c "python setup.py install --user"
 # sleep 3
 sudo bash -c 'cp /home/'$username'/multichain-explorer/chain1.example.conf /home/'$username'/multichain-explorer/'$chainname'.conf'
 sudo sed -ie 's/MultiChain chain1/'$explorerDisplayName'/g' /home/$username/multichain-explorer/$chainname.conf
@@ -218,7 +219,7 @@ sudo sed -ie 's/chain1.explorer.sqlite/'$chainname'.explorer.sqlite/g' /home/$us
 
 su -l $username -c 'python -m Mce.abe --config '$chainname'.conf --commit-bytes 100000 --no-serve'
 sleep 5
-echo -ne '\n' | su -l $username -c 'nohup python -m Mce.abe --config '$chainname'.conf > /dev/null 2>/dev/null &'
+su -l $username -c "echo -ne '\n' | nohup python -m Mce.abe --config '$chainname'.conf > /dev/null 2>/dev/null &"
 
 # Restarting Apache to load the changes
 # sudo service apache2 restart
