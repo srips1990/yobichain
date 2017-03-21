@@ -30,10 +30,11 @@ This section presumes that you have root permission and want to install Yobichai
 Install git and clone the yobichain-block repository
 
     sudo apt-get install git
-    sudo git clone https://github.com/Primechain/yobichain-block.git
+    sudo git clone https://github.com/Primechain/yobichain.git
 
 Harden the base operating system
 
+    cd yobichain
     sudo bash -e hardening.sh <password>
 
 Install the FTP server
@@ -92,5 +93,5 @@ In case something goes wrong, you can roll back the multichain installation usin
 
 Planned roadmap
 -----
-* MEAN (MongoDB, Express, AngularJS, Node.js)
-* Stellar
+* Installation of MEAN (MongoDB, Express, AngularJS, Node.js)
+* Installation of Stellar
