@@ -24,7 +24,7 @@ One server (min 2 GB RAM, 2 CPUs) running Ubuntu 16.04.2 x64 and latest version 
 Installation
 ------------
 
-This section presumes that you have root permission and want to install Yobichain Block, on the primary node, for all users on the system.
+This section presumes that you have root permission and want to install Yobichain for all users on the system.
 
 Install git and clone the yobichain repository
 
