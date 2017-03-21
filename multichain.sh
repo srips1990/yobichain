@@ -217,9 +217,9 @@ sudo sed -ie 's/host localhost.*\#/host  localhost 	#/g' /home/$username/multich
 sudo sed -ie 's/host localhost/host 0.0.0.0/g' /home/$username/multichain-explorer/$chainname.conf
 sudo sed -ie 's/chain1.explorer.sqlite/'$chainname'.explorer.sqlite/g' /home/$username/multichain-explorer/$chainname.conf
 
-su -l $username -c 'python -m Mce.abe --config '$chainname'.conf --commit-bytes 100000 --no-serve'
+su -l $username -c 'cd /home/'$username' && python -m Mce.abe --config '$chainname'.conf --commit-bytes 100000 --no-serve'
 sleep 5
-su -l $username -c "echo -ne '\n' | nohup python -m Mce.abe --config '$chainname'.conf > /dev/null 2>/dev/null &"
+su -l $username -c "cd /home/"$username" && echo -ne '\n' | nohup python -m Mce.abe --config '"$chainname"'.conf > /dev/null 2>/dev/null &"
 
 # Restarting Apache to load the changes
 # sudo service apache2 restart
