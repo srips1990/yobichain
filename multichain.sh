@@ -28,13 +28,13 @@ echo '----------------------------------------'
 sudo apt-get --assume-yes update
 sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php-curl sqlite3 libsqlite3-dev python-dev gcc python-pip
 sudo pip install --upgrade pip
-sudo pip install pycrypto
+#sudo pip install pycrypto > /dev/null 2>/dev/null &
 
-# wget https://pypi.python.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz
-# tar -xvzf pycrypto-2.6.1.tar.gz
-# cd pycrypto*
-# sudo python setup.py install
-# cd ..
+wget https://pypi.python.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz
+tar -xvzf pycrypto-2.6.1.tar.gz
+cd pycrypto*
+sudo python setup.py install
+cd ..
 
 ## Configuring PHP-Curl
 sudo sed -ie 's/;extension=php_curl.dll/extension=php_curl.dll/g' $phpinipath
