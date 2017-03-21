@@ -75,10 +75,10 @@ In case something goes wrong, you can roll back the multichain installation usin
 
 Live demo
 ---------
-* To access Multichain web-demo, visit http://127.0.0.1/multichain-web-demo
-* To access Multichain Exporer, visit http://<IP Address>:2750
-* To authenticate a file using docHash, visit http://<IP Address>/hashchain/hashchain_authenticator.php 
-* To verify a file using docHash, visit http://<IP Address>/hashchain/ 
+* To access Multichain web-demo, visit http://139.59.64.145/multichain-web-demo
+* To access Multichain Exporer, visit http://139.59.64.145:2750
+* To authenticate a file using docHash, visit http://139.59.64.145/hashchain/hashchain_authenticator.php 
+* To verify a file using docHash, visit http://139.59.64.145/hashchain/ 
 
 Planned roadmap
 -----
