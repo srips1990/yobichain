@@ -203,6 +203,8 @@ sudo sed -ie 's/default.rpcport=.*\#/default.rpcport='$rpcport'       \#/g' /var
 ## INSTALLING & CONFIGURING MULTICHAIN EXPLORER
 ###
 
+cd /home/$username
+
 git clone https://github.com/MultiChain/multichain-explorer.git
 # sleep 3
 sudo bash -c 'cp /var/www/html/multichain-explorer/chain1.example.conf /var/www/html/multichain-explorer/'$chainname'.conf'
@@ -213,7 +215,7 @@ sudo sed -ie 's/host localhost.*\#/host  localhost 	#/g' /var/www/html/multichai
 sudo sed -ie 's/host localhost/host 0.0.0.0/g' /var/www/html/multichain-explorer/$chainname.conf
 sudo sed -ie 's/chain1.explorer.sqlite/'$chainname'.explorer.sqlite/g' /var/www/html/multichain-explorer/$chainname.conf
 
-cd /var/www/html/multichain-explorer
+cd multichain-explorer
 su -l $username -c 'python -m Mce.abe --config '$chainname'.conf --commit-bytes 100000 --no-serve'
 sleep 5
 echo -ne '\n' | su -l $username -c 'nohup python -m Mce.abe --config '$chainname'.conf > /dev/null 2>/dev/null &'
