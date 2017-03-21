@@ -36,7 +36,7 @@ Harden the base operating system. This will also create a new user called yobius
     cd yobichain
     sudo bash -e hardening.sh <password>
 
-Install the FTP server. This willset up the FTP server. For logging in use the IP address of your server as the `host`. The username and password are as entered by you below. The connection is `SFTP`.
+Install the FTP server. This will set up the FTP server. For logging in use the IP address of your server as the `host`. The username and password are as entered by you below. The connection is `SFTP`.
 
     sudo bash -e ftp.sh <username> <password>
 
@@ -56,25 +56,11 @@ To use docHash,
 * To verify, go to `http://<IP Address>/hashchain` and drag and drop a file. 
 * If the hash of that file exists in your blockchain, the file will show as verified. If not, it will show as not verified.
 
-Installation of the secondary node
-------------
-
-This section presumes that you have root permission and want to install Yobichain Block, on the secondary node, for all users on the system.
-
-Install git and clone the yobichain-block repository
-
-    sudo apt-get install git
-    sudo git clone https://github.com/Primechain/yobichain-block.git
-
-Harden the base operating system
-
-    sudo bash -e hardening.sh <password>
-
 
 Notes
 -----
 
-On the primary node, this will:
+This will:
 * harden the base operating system against cyber attacks
 * set up a Multichain blockchain using a pre-defined configuration
 * set up PHPmyadmin, PHP, MySQL and Apache
@@ -82,15 +68,19 @@ On the primary node, this will:
 * set up Multichain Explorer
 * set up docHash, a simple drag n drop solution for authenticating and verifying electronic records.
 
-On the secondary node, this will:
-* harden the base operating system against cyber attacks
-* set up a Multichain blockchain using a pre-defined configuration
 
 In case something goes wrong, you can roll back the multichain installation using
 
     bash rollback_multichain.sh 
 
+Live demo
+---------
+To access Multichain web-demo, visit http://<IP Address>/multichain-web-demo
+To access Multichain Exporer, visit http://<IP Address>:2750
+To authenticate a file using docHash, visit http://<IP Address>/hashchain/hashchain_authenticator.php 
+To verify a file using docHash, visit http://<IP Address>/hashchain/ 
+
 Planned roadmap
 -----
+* Installation of other blockchains and distributed ledger systems BigChainDB, Chain, Corda, Credits, Elements, Eris, Fabric, Ethereum, HydraChain, Hyperledger, Openchain, Quorum, Sawtooth, Stellar.
 * Installation of MEAN (MongoDB, Express, AngularJS, Node.js)
-* Installation of Stellar
