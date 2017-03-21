@@ -26,7 +26,7 @@ echo -e ${CYAN}${bold}'INSTALLING PREREQUISITES.....'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
 
 sudo apt-get --assume-yes update
-sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php-curl sqlite3 libsqlite3-dev python-dev #python-pip
+sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php-curl sqlite3 libsqlite3-dev python-dev gcc #python-pip
 #sudo pip install --upgrade pip
 #sudo pip install pycrypto
 
