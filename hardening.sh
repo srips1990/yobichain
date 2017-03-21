@@ -26,7 +26,7 @@ echo '----------------------------------------'
 echo -e ${CYAN}${bold}'ENABLING AUTOMATIC SECURITY UPDATES:'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
 
-echo 'unattended-upgrades unattended-upgrades/enable_auto_updates boolean true' | debconf-set-selections
+echo 'unattended-upgrades unattended-upgrades/configure boolean true' | debconf-set-selections
 
 sudo apt-get --assume-yes install unattended-upgrades
 sleep 4
