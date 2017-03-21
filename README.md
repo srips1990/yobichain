@@ -11,8 +11,6 @@ YobiChain is ideal for
 * Serious researchers / enthusiasts looking to experiment with a live blockchain.
 * In-house teams experimenting with blockchain technology.
 
-    Copyright(C) 2017 by Primechain Technologies Pvt. Ltd.
-    License: GNU General Public License version 3
 
 System Requirements
 -------------------
