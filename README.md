@@ -39,7 +39,7 @@ Harden the base operating system
 
 Install the FTP server
 
-    sudo bash -e ftp.sh
+    sudo bash -e ftp.sh <username> <password>
 
 
 Install, configure and run the Multichain blockchain, Multichain web-demo and Multichain Exporer. This also sets up docHash, a simple drag n drop solution for authenticating and verifying electronic records.
