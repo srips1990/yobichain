@@ -16,15 +16,17 @@ echo '----------------------------------------'
 echo -e ${CYAN}${bold}'UPDATING THE SYSTEM:'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
 
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get autoremove
-sudo apt-get autoclean
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y autoremove
+sudo apt-get -y autoclean
 
 sleep 3
 echo '----------------------------------------'
 echo -e ${CYAN}${bold}'ENABLING AUTOMATIC SECURITY UPDATES:'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
+
+echo 'unattended-upgrades unattended-upgrades/enable_auto_updates boolean true' | debconf-set-selections
 
 sudo apt-get --assume-yes install unattended-upgrades
 sleep 4
@@ -81,8 +83,8 @@ echo '----------------------------------------'
 echo -e ${CYAN}${bold}'VERIFYING OPENSSL VERSION:'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
 
-sudo apt-get update
-sudo apt-get upgrade openssl libssl-dev
+sudo apt-get -y update
+sudo apt-get -y upgrade openssl libssl-dev
 sudo apt-cache policy openssl libssl-dev
 
 
@@ -143,8 +145,8 @@ echo '----------------------------------------'
 echo -e ${CYAN}${bold}'SECURING SERVER AGAINST BASH VULNERABILITY:'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
 
-sudo apt-get update
-sudo apt-get install --only-upgrade bash
+sudo apt-get -y update
+sudo apt-get -y install --only-upgrade bash
 
 echo ''
 echo ''
