@@ -222,9 +222,9 @@ sleep 5
 su -l $username -c "echo -ne '\n' | nohup python -m Mce.abe --config /home/"$username"/multichain-explorer/"$chainname".conf > /dev/null 2>/dev/null &"
 
 # Restarting Apache to load the changes
-# sudo service apache2 restart
-sudo service apache2 stop
-su -l $username -c 'service apache2 restart'
+sudo service apache2 restart
+#sudo service apache2 stop
+#su -l $username -c 'service apache2 start'
 
 echo ''
 echo ''
