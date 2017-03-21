@@ -19,6 +19,7 @@ explorerport=2750
 adminNodeName=$chainname'_Admin'
 explorerDisplayName=$chainname
 phpinipath='/etc/php/7.0/apache2/php.ini'
+username='yobiuser'
 
 echo '----------------------------------------'
 echo -e ${CYAN}${bold}'INSTALLING PREREQUISITES.....'${normal}${LIGHTYELLOW}
@@ -79,26 +80,26 @@ wget --no-verbose http://www.multichain.com/download/multichain-latest.tar.gz
 sudo bash -c 'tar xvf multichain-latest.tar.gz'
 sudo bash -c 'cp multichain-1.0-alpha*/multichain* /usr/local/bin/'
 
-sudo bash -c 'multichain-util create '$chainname $protocol
+su -l $username -c  'multichain-util create '$chainname $protocol
 
-sudo sed -ie 's/.*root-stream-open =.*\#/root-stream-open = false     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*mining-requires-peers =.*\#/mining-requires-peers = true     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*initial-block-reward =.*\#/initial-block-reward = 0     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*first-block-reward =.*\#/first-block-reward = -1     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*target-adjust-freq =.*\#/target-adjust-freq = 172800     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*max-std-tx-size =.*\#/max-std-tx-size = 100000000     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*max-std-op-returns-count =.*\#/max-std-op-returns-count = 1024     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*max-std-op-return-size =.*\#/max-std-op-return-size = 8388608     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*max-std-op-drops-count =.*\#/max-std-op-drops-count = 100     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*max-std-element-size =.*\#/max-std-element-size = 32768     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*default-network-port =.*\#/default-network-port = '$networkport'     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*default-rpc-port =.*\#/default-rpc-port = '$rpcport'     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*chain-name =.*\#/chain-name = '$chainname'     #/g' /root/.multichain/$chainname/params.dat
-sudo sed -ie 's/.*protocol-version =.*\#/protocol-version = '$protocol'     #/g' /root/.multichain/$chainname/params.dat
+su -l $username -c "sed -ie 's/.*root-stream-open =.*\#/root-stream-open = false     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*mining-requires-peers =.*\#/mining-requires-peers = true     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*initial-block-reward =.*\#/initial-block-reward = 0     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*first-block-reward =.*\#/first-block-reward = -1     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*target-adjust-freq =.*\#/target-adjust-freq = 172800     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*max-std-tx-size =.*\#/max-std-tx-size = 100000000     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*max-std-op-returns-count =.*\#/max-std-op-returns-count = 1024     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*max-std-op-return-size =.*\#/max-std-op-return-size = 8388608     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*max-std-op-drops-count =.*\#/max-std-op-drops-count = 100     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*max-std-element-size =.*\#/max-std-element-size = 32768     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*default-network-port =.*\#/default-network-port = '$networkport'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*default-rpc-port =.*\#/default-rpc-port = '$rpcport'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*chain-name =.*\#/chain-name = '$chainname'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c " sed -ie 's/.*protocol-version =.*\#/protocol-version = '$protocol'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 
-sudo bash -c 'echo rpcuser='$rpcuser' > /root/.multichain/'$chainname'/multichain.conf'
-sudo bash -c 'echo rpcpassword='$rpcpassword' >> /root/.multichain/'$chainname'/multichain.conf'
-sudo bash -c 'echo rpcport='$rpcport' >> /root/.multichain/'$chainname'/multichain.conf'
+su -l $username -c 'echo rpcuser='$rpcuser' > /home/'$username'/.multichain/'$chainname'/multichain.conf'
+su -l $username -c 'echo rpcpassword='$rpcpassword' >> /home/'$username'/.multichain/'$chainname'/multichain.conf'
+su -l $username -c 'echo rpcport='$rpcport' >> /home/'$username'/.multichain/'$chainname'/multichain.conf'
 
 echo ''
 echo ''
@@ -112,7 +113,7 @@ echo '----------------------------------------'
 echo -e ${CYAN}${bold}'RUNNING BLOCKCHAIN.....'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
 
-sudo bash -c 'multichaind '$chainname' -daemon'
+su -l $username -c 'multichaind '$chainname' -daemon'
 
 echo ''
 echo ''
@@ -148,12 +149,12 @@ echo '----------------------------------------'
 
 # CREATE STREAMS
 # ------ -------
-sudo multichain-cli $chainname createrawsendfrom $addr '{}' '[{"create":"stream","name":"proof_of_existence","open":false,"details":{"purpose":"Stores hashes of files"}}]' send
+su -l $username -c "multichain-cli $chainname createrawsendfrom $addr '{}' '[{\"create\":\"stream\",\"name\":\"proof_of_existence\",\"open\":false,\"details\":{\"purpose\":\"Stores hashes of files\"}}]' send"
 
 
 # SUBSCRIBE STREAMS
 # --------- -------
-sudo multichain-cli $chainname subscribe proof_of_existence
+su -l $username -c "multichain-cli "$chainname" subscribe proof_of_existence"
 
 
 echo ''
@@ -213,12 +214,14 @@ sudo sed -ie 's/host localhost/host 0.0.0.0/g' /var/www/html/multichain-explorer
 sudo sed -ie 's/chain1.explorer.sqlite/'$chainname'.explorer.sqlite/g' /var/www/html/multichain-explorer/$chainname.conf
 
 cd /var/www/html/multichain-explorer
-sudo bash -c 'python -m Mce.abe --config '$chainname'.conf --commit-bytes 100000 --no-serve'
+su -l $username -c 'python -m Mce.abe --config '$chainname'.conf --commit-bytes 100000 --no-serve'
 sleep 5
-echo -ne '\n' | sudo bash -c 'nohup python -m Mce.abe --config '$chainname'.conf > /dev/null 2>/dev/null &'
+echo -ne '\n' | su -l $username -c 'nohup python -m Mce.abe --config '$chainname'.conf > /dev/null 2>/dev/null &'
 
 # Restarting Apache to load the changes
 # sudo service apache2 restart
+sudo service apache2 stop
+su -l $username -c 'service apache2 restart'
 
 echo ''
 echo ''
