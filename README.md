@@ -3,6 +3,8 @@ Yobichain
 
 > WARNING: Yobichain is intended for experimenting and learning, NOT for a production environment.
 
+![Image of Yobi](http://www.primechain.in/img/github_yobichain.png)
+
 YobiChain is your very own private blockchain ecosystem preloaded with development tools, database, web & FTP servers and a simple blockchain application. Yobichain is maintained by [Primechain Technologies Pvt. Ltd.](http://www.primechain.in). This version of Yobichain runs on [Multichain](https://github.com/MultiChain).
 
 YobiChain is ideal for
