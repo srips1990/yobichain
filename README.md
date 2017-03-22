@@ -102,7 +102,7 @@ Planned roadmap
 Contributors
 -------------
 A non-exhaustive list of contributors:
-* Sripathi Srinivasan (sripathi@primechain.in)
+* Sripathi Srinivasan (sripathi@primechain.in) [Project Lead]
 * Rohas Nagpal (rohas@primechain.in)
 * Sudin Baraokar (HEAD.SBICIC@sbi.co.in)
-* Shinam Arora (rohas@primechain.in)
+* Shinam Arora (shinam@primechain.in)
