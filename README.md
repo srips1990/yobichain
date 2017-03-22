@@ -15,9 +15,9 @@ YobiChain is ideal for
 System Requirements
 -------------------
 
-One server (min 2 GB RAM, 2 CPUs) running Ubuntu 16.04.2 x64 and latest version of phpMyAdmin. 
+One server (min 2 GB RAM, 2 CPUs) running Ubuntu 16.04.2 x64 and php 7.0.
 
-You can set this up using Digtal Ocean's one-click app - PhpMyAdmin on 16.04. Use this link to get a free $10 credit from Digital Ocean: https://m.do.co/c/dc0df9a8a187 
+You can set this up using Digtal Ocean's one-click app  `PhpMyAdmin on 16.04` or `LAMP on 16.04`. Use this link to get a free $10 credit from Digital Ocean: https://m.do.co/c/dc0df9a8a187 
 
 Installation
 ------------
