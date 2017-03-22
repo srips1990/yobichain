@@ -44,6 +44,7 @@ echo '$username ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 
 sleep 3
+# Setting up swap partition
 echo '----------------------------------------'
 echo -e ${CYAN}${bold}'SETTING UP SWAP PARTITION:'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
