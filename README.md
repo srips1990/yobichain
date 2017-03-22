@@ -39,7 +39,7 @@ This section presumes that you have root permission and want to install Yobichai
     sudo bash -e ftp.sh <username> <password>
 
 
-**Step 4.** Install, configure and run the Multichain blockchain, Multichain web-demo and Multichain Exporer. This also sets up docHash, a simple drag n drop solution for authenticating and verifying electronic records.
+**Step 4.** Install, configure and run the Multichain blockchain, Multichain web-demo and Multichain Exporer. This also sets up docHash, a simple drag n drop solution for authenticating and verifying electronic records. The RPC port will be set as `15590` and the Network port will be set as `61172`
 
     sudo bash -e multichain.sh <chain-name> <rpc-username> <rpc-password>
 		
