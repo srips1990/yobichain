@@ -28,7 +28,6 @@ echo '----------------------------------------'
 sudo apt-get --assume-yes update
 sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php-curl sqlite3 libsqlite3-dev python-dev gcc python-pip
 sudo pip install --upgrade pip
-#sudo pip install pycrypto > /dev/null 2>/dev/null &
 
 wget https://pypi.python.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz
 tar -xvzf pycrypto-2.6.1.tar.gz
@@ -140,7 +139,6 @@ echo ''
 echo ''
 echo ''
 
-#sleep 3
 
 echo '----------------------------------------'
 echo -e ${CYAN}${bold}'CREATING AND CONFIGURING STREAMS.....'${normal}${LIGHTYELLOW}
@@ -169,29 +167,32 @@ echo -e ${LIGHTGREEN}${bold}'----------------------------------------'
 echo -e 'BLOCKCHAIN SUCCESSFULLY SET UP!'
 echo -e '----------------------------------------'${normal}${LIGHTYELLOW}
 
-#sleep 2
 
 echo '----------------------------------------'
 echo -e ${CYAN}${bold}'SETTING UP APPLICATIONS.....'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
 
-cd /var/www/html
+cd /var/www/html	# Changing current directory to web server's root directory
+
 
 ###
 ## INSTALLING & CONFIGURING HASHCHAIN
 ###
 git clone https://github.com/Primechain/hashchain.git
-# sleep 3
+
+# Configuring Hashchain
 sudo sed -ie 's/RPC_USER =.*;/RPC_USER = "'$rpcuser'";/g' /var/www/html/hashchain/resources.php
 sudo sed -ie 's/RPC_PASSWORD =.*;/RPC_PASSWORD = "'$rpcpassword'";/g' /var/www/html/hashchain/resources.php
 sudo sed -ie 's/RPC_PORT =.*;/RPC_PORT = "'$rpcport'";/g' /var/www/html/hashchain/resources.php
 sudo sed -ie 's/MANAGER_ADDRESS =.*;/MANAGER_ADDRESS = "'$addr'";/g' /var/www/html/hashchain/resources.php
 
+
 ###
 ## INSTALLING & CONFIGURING MULTICHAIN WEB DEMO
 ###
 git clone https://github.com/MultiChain/multichain-web-demo.git
-# sleep 3
+
+# Configuring Web Demo
 sudo bash -c 'cp /var/www/html/multichain-web-demo/config-example.txt /var/www/html/multichain-web-demo/config.txt'
 sudo sed -ie 's/default.name=.*\#/default.name='$adminNodeName'       \#/g' /var/www/html/multichain-web-demo/config.txt
 sudo sed -ie 's/default.rpcuser=.*\#/default.rpcuser='$rpcuser'       \#/g' /var/www/html/multichain-web-demo/config.txt
@@ -208,10 +209,11 @@ git clone https://github.com/MultiChain/multichain-explorer.git
 cd multichain-explorer
 pwd
 sudo python setup.py install
-# sleep 3
+
 sudo bash -c 'cp /home/'$username'/multichain-explorer/chain1.example.conf /home/'$username'/multichain-explorer/'$chainname'.conf'
+
 sudo sed -ie 's/MultiChain chain1/'$explorerDisplayName'/g' /home/$username/multichain-explorer/$chainname.conf
-#sudo sed -ie 's/2750/'$explorerPort'/g' /home/$username/multichain-explorer/$chainname.conf
+sudo sed -ie 's/2750/'$explorerport'/g' /home/$username/multichain-explorer/$chainname.conf
 sudo sed -ie 's/chain1/'$chainname'/g' /home/$username/multichain-explorer/$chainname.conf
 sudo sed -ie 's/host localhost.*\#/host  localhost 	#/g' /home/$username/multichain-explorer/$chainname.conf
 sudo sed -ie 's/host localhost/host 0.0.0.0/g' /home/$username/multichain-explorer/$chainname.conf
@@ -223,8 +225,6 @@ su -l $username -c "echo -ne '\n' | nohup python -m Mce.abe --config /home/"$use
 
 # Restarting Apache to load the changes
 sudo service apache2 restart
-#sudo service apache2 stop
-#su -l $username -c 'service apache2 start'
 
 echo ''
 echo ''
