@@ -80,5 +80,29 @@ Live demo
 
 Planned roadmap
 -----
-* Installation of other blockchains and distributed ledger systems BigChainDB, Chain, Corda, Credits, Elements, Eris, Fabric, Ethereum, HydraChain, Hyperledger, Openchain, Quorum, Sawtooth, Stellar.
-* Installation of MEAN (MongoDB, Express, AngularJS, Node.js)
+- [ ] Installation of Primechain Vault
+- [ ] Installation of Primechain Contract
+- [ ] Installation of a simple wallet
+- [ ] Installation of MEAN (MongoDB, Express, AngularJS, Node.js)
+- [ ] Installation of BigChainDB
+- [ ] Installation of Chain
+- [ ] Installation of Corda
+- [ ] Installation of Credits
+- [ ] Installation of Elements
+- [ ] Installation of Eris, 
+- [ ] Installation of Fabric
+- [ ] Installation of Ethereum 
+- [ ] Installation of HydraChain 
+- [ ] Installation of Hyperledger 
+- [ ] Installation of Openchain
+- [ ] Installation of Quorum
+- [ ] Installation of Sawtooth 
+- [ ] Installation of Stellar
+
+Contributors
+-------------
+A non-exhaustive list of contributors:
+* Sripathi Srinivasan (sripathi@primechain.in)
+* Rohas Nagpal (rohas@primechain.in)
+* Sudin Baraokar (HEAD.SBICIC@sbi.co.in)
+* Shinam Arora (rohas@primechain.in)
