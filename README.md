@@ -24,22 +24,22 @@ Installation
 
 This section presumes that you have root permission and want to install Yobichain for all users on the system.
 
-Install git and clone the yobichain repository
+1. Install git and clone the yobichain repository
 
     sudo apt-get install git
     sudo git clone https://github.com/Primechain/yobichain.git
 
-Harden the base operating system. This will also create a new user called yobiuser with the password entered by you below.
+2. Harden the base operating system (Ubuntu 16.04.2 x64). This will also create a new user called yobiuser with the password entered by you below.
 
     cd yobichain
     sudo bash -e hardening.sh <password>
 
-Install the FTP server. This will set up the FTP server. For logging in, use the IP address of your server as the `host`. The username and password are as entered by you below. The connection is `SFTP`.
+3. Install the FTP server. This will set up the FTP server. For logging in, use the IP address of your server as the `host`. The username and password are as entered by you below. The connection is `SFTP`.
 
     sudo bash -e ftp.sh <username> <password>
 
 
-Install, configure and run the Multichain blockchain, Multichain web-demo and Multichain Exporer. This also sets up docHash, a simple drag n drop solution for authenticating and verifying electronic records.
+4. Install, configure and run the Multichain blockchain, Multichain web-demo and Multichain Exporer. This also sets up docHash, a simple drag n drop solution for authenticating and verifying electronic records.
 
     sudo bash -e multichain.sh <chain-name> <rpc-username> <rpc-password>
 		
