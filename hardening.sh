@@ -12,27 +12,27 @@ normal=$(tput sgr0)
 username='yobiuser'
 passwd=$1
 
+# Update the system
 echo '----------------------------------------'
 echo -e ${CYAN}${bold}'UPDATING THE SYSTEM:'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
-
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y autoremove
 sudo apt-get -y autoclean
 
 sleep 3
+# Enable automatic security updates
 echo '----------------------------------------'
 echo -e ${CYAN}${bold}'ENABLING AUTOMATIC SECURITY UPDATES:'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
-
 echo 'unattended-upgrades unattended-upgrades/configure boolean true' | debconf-set-selections
 
 sudo apt-get --assume-yes install unattended-upgrades
 sleep 4
 sudo dpkg-reconfigure -plow unattended-upgrades
 
-
+# Setting up user account
 echo '----------------------------------------'
 echo -e ${CYAN}${bold}'SETTING UP $username USER ACCOUNT:'${normal}${LIGHTYELLOW}
 echo '----------------------------------------'
@@ -40,8 +40,6 @@ echo '----------------------------------------'
 sudo useradd -d /home/$username -s /bin/bash -m $username
 sudo usermod -a -G sudo $username
 echo $username":"$passwd | sudo chpasswd
-#sudo passwd $username
-
 echo '$username ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 
