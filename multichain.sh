@@ -247,7 +247,6 @@ sudo sed -ie 's/default.rpcport=.*\#/default.rpcport='$rpcport'       \#/g' /var
 cd /home/$username
 git clone https://github.com/MultiChain/multichain-explorer.git
 cd multichain-explorer
-pwd
 sudo python setup.py install
 
 sudo bash -c 'cp /home/'$username'/multichain-explorer/chain1.example.conf /home/'$username'/multichain-explorer/'$chainname'.conf'
