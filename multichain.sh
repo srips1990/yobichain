@@ -129,7 +129,7 @@ echo '----------------------------------------'
 
 sleep 6
 
-addr=`curl --user "$rpcuser:$rpcpassword" --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresses", "params": [] }' -H 'content-type: text/json;' http://127.0.0.1:$rpcport | jq -r '.result[0]'`
+addr=`curl --user '$rpcuser:$rpcpassword' --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresses", "params": [] }' -H 'content-type: text/json;' http://127.0.0.1:$rpcport | jq -r '.result[0]'`
 
 su -l $username -c  "multichain-cli "$chainname" issue "$addr" '{\"name\":\""$assetName"\", \"open\":true}' 1000000000000 0.01 0 '{\"description\":\"This is a smart asset for peer-to-peer transaction\"}'"
 
@@ -210,7 +210,7 @@ git clone https://github.com/Primechain/hashchain.git
 
 # Configuring Hashchain
 sudo sed -ie 's/RPC_USER =.*;/RPC_USER = "'$rpcuser'";/g' /var/www/html/hashchain/resources.php
-sudo sed -ie 's/RPC_PASSWORD =.*;/RPC_PASSWORD = "'$rpcpassword'";/g' /var/www/html/hashchain/resources.php
+sudo sed -ie 's/RPC_PASSWORD =.*;/RPC_PASSWORD = "$rpcpassword";/g' /var/www/html/hashchain/resources.php
 sudo sed -ie 's/RPC_PORT =.*;/RPC_PORT = "'$rpcport'";/g' /var/www/html/hashchain/resources.php
 sudo sed -ie 's/MANAGER_ADDRESS =.*;/MANAGER_ADDRESS = "'$addr'";/g' /var/www/html/hashchain/resources.php
 
@@ -222,7 +222,7 @@ git clone https://github.com/Primechain/yobiapps.git
 
 # Configuring Yobiapps
 sudo sed -ie 's/RPC_USER =.*;/RPC_USER = "'$rpcuser'";/g' /var/www/html/yobiapps/config.php
-sudo sed -ie 's/RPC_PASSWORD =.*;/RPC_PASSWORD = "'$rpcpassword'";/g' /var/www/html/yobiapps/config.php
+sudo sed -ie 's/RPC_PASSWORD =.*;/RPC_PASSWORD = "$rpcpassword";/g' /var/www/html/yobiapps/config.php
 sudo sed -ie 's/RPC_PORT =.*;/RPC_PORT = "'$rpcport'";/g' /var/www/html/yobiapps/config.php
 sudo sed -ie 's/MANAGER_ADDRESS =.*;/MANAGER_ADDRESS = "'$addr'";/g' /var/www/html/yobiapps/config.php
 
@@ -236,7 +236,7 @@ git clone https://github.com/MultiChain/multichain-web-demo.git
 sudo bash -c 'cp /var/www/html/multichain-web-demo/config-example.txt /var/www/html/multichain-web-demo/config.txt'
 sudo sed -ie 's/default.name=.*\#/default.name='$adminNodeName'       \#/g' /var/www/html/multichain-web-demo/config.txt
 sudo sed -ie 's/default.rpcuser=.*\#/default.rpcuser='$rpcuser'       \#/g' /var/www/html/multichain-web-demo/config.txt
-sudo sed -ie 's/default.rpcpassword=.*\#/default.rpcpassword='$rpcpassword'       \#/g' /var/www/html/multichain-web-demo/config.txt
+sudo sed -ie 's/default.rpcpassword=.*\#/default.rpcpassword=$rpcpassword       \#/g' /var/www/html/multichain-web-demo/config.txt
 sudo sed -ie 's/default.rpcport=.*\#/default.rpcport='$rpcport'       \#/g' /var/www/html/multichain-web-demo/config.txt
 
 
