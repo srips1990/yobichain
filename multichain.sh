@@ -97,7 +97,7 @@ su -l $username -c "sed -ie 's/.*default-rpc-port =.*\#/default-rpc-port = '$rpc
 su -l $username -c "sed -ie 's/.*chain-name =.*\#/chain-name = '$chainname'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c " sed -ie 's/.*protocol-version =.*\#/protocol-version = '$protocol'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 
-su -l $username -c 'echo rpcuser='$rpcuser' > /home/'$username'/.multichain/'$chainname'/multichain.conf'
+su -l $username -c "echo rpcuser='$rpcuser' > /home/$username/.multichain/$chainname/multichain.conf"
 su -l $username -c "echo rpcpassword='$rpcpassword' >> /home/$username/.multichain/$chainname/multichain.conf"
 su -l $username -c 'echo rpcport='$rpcport' >> /home/'$username'/.multichain/'$chainname'/multichain.conf'
 
