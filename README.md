@@ -105,10 +105,10 @@ Live demo
 
 Planned roadmap
 -----
-+ ~~[ ] Installation of PrimeVault~~ done
-+ ~~[ ] Installation of PrimeContract~~ done
-+ ~~[ ] Installation of YobiWallet~~ done
-- [ ] Installation of MEAN (MongoDB, Express, AngularJS, Node.js)
++ ~~[ ] Installation of PrimeVault~~ **done**
++ ~~[ ] Installation of PrimeContract~~ **done**
++ ~~[ ] Installation of YobiWallet~~ **done**
++ [ ] Installation of MEAN (MongoDB, Express, AngularJS, Node.js)
 
 
 Contributors
