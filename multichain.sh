@@ -164,6 +164,7 @@ su -l $username -c  "multichain-cli "$chainname" createrawsendfrom "$addr" '{}' 
 su -l $username -c  "multichain-cli "$chainname" createrawsendfrom "$addr" '{}' '[{\"create\":\"stream\",\"name\":\"contract_details\",\"open\":false,\"details\":{\"purpose\":\"Stores basic details of contracts\"}}]' send"
 su -l $username -c  "multichain-cli "$chainname" createrawsendfrom "$addr" '{}' '[{\"create\":\"stream\",\"name\":\"contract_files\",\"open\":false,\"details\":{\"purpose\":\"Stores files related to contracts\"}}]' send"
 su -l $username -c  "multichain-cli "$chainname" createrawsendfrom "$addr" '{}' '[{\"create\":\"stream\",\"name\":\"contract_signatures\",\"open\":false,\"details\":{\"purpose\":\"Stores signatures of contracts\"}}]' send"
+su -l $username -c  "multichain-cli "$chainname" createrawsendfrom "$addr" '{}' '[{\"create\":\"stream\",\"name\":\"contracts_signed\",\"open\":false,\"details\":{\"purpose\":\"Stores the list of contracts signed by each user\"}}]' send"
 su -l $username -c  "multichain-cli "$chainname" createrawsendfrom "$addr" '{}' '[{\"create\":\"stream\",\"name\":\"contract_invited_signees\",\"open\":false,\"details\":{\"purpose\":\"Stores the list of users invited to sign a contract\"}}]' send"
 
 
@@ -181,6 +182,7 @@ su -l $username -c  "multichain-cli "$chainname" subscribe vault"
 su -l $username -c  "multichain-cli "$chainname" subscribe contract_details"
 su -l $username -c  "multichain-cli "$chainname" subscribe contract_files"
 su -l $username -c  "multichain-cli "$chainname" subscribe contract_signatures"
+su -l $username -c  "multichain-cli "$chainname" subscribe contracts_signed"
 su -l $username -c  "multichain-cli "$chainname" subscribe contract_invited_signees"
 
 
