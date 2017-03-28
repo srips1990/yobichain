@@ -41,7 +41,7 @@ This section presumes that you have root permission and want to install Yobichai
     sudo bash -e ftp.sh <username> <password>
 
 
-**Step 4.** Install, configure and run the Multichain blockchain, Multichain web-demo and Multichain Exporer. This also sets up docHash, a simple drag n drop solution for authenticating and verifying electronic records. The RPC port will be set as `15590` and the Network port will be set as `61172`
+**Step 4.** Install, configure and run the Multichain blockchain, Multichain web-demo and Multichain Exporer. This also sets up hashchain, a simple drag n drop solution for authenticating and verifying electronic records. The RPC port will be set as `15590` and the Network port will be set as `61172`
 
     sudo bash -e multichain.sh <chain-name> <rpc-username> <rpc-password>
 		
@@ -49,7 +49,7 @@ To access Multichain web-demo, visit `http://<IP Address>/multichain-web-demo`
 
 To access Multichain Exporer, visit `http://<IP Address>:2750`
 
-To use docHash, 
+To use hashchain, 
 * Go to `http://<IP Address>/hashchain/hashchain_authenticator.php` and drag and drop any file (text, doc, pdf, video anything). 
 * The hash of the file will be immediately calculated in your browser. 
 * This hash will then be uploaded to your blockchain and stored. 
@@ -66,7 +66,7 @@ This will:
 * set up an FTP server
 * set up Multichain web demo
 * set up Multichain Explorer
-* set up docHash, a simple drag n drop solution for authenticating and verifying electronic records.
+* set up hashchain, a simple drag n drop solution for authenticating and verifying electronic records.
 
 
 In case something goes wrong, you can roll back the multichain installation using
@@ -77,8 +77,8 @@ Live demo
 ---------
 * To access a live Multichain web-demo, visit http://139.59.64.145/multichain-web-demo
 * To access a live Multichain Exporer, visit http://139.59.64.145:2750
-* To authenticate a file using docHash, visit http://139.59.64.145/hashchain/hashchain_authenticator.php 
-* To verify a file using docHash, visit http://139.59.64.145/hashchain/ 
+* To authenticate a file using hashchain, visit http://139.59.64.145/hashchain/hashchain_authenticator.php 
+* To verify a file using hashchain, visit http://139.59.64.145/hashchain/ 
 
 Planned roadmap
 -----
