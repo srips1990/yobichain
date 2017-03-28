@@ -97,10 +97,15 @@ In case something goes wrong, you can roll back the multichain installation usin
 
 Live demo
 ---------
-* To access a live Multichain web-demo, visit http://139.59.64.145/multichain-web-demo
-* To access a live Multichain Exporer, visit http://139.59.64.145:2750
-* To authenticate a file using hashchain, visit http://139.59.64.145/hashchain/hashchain_authenticator.php 
-* To verify a file using hashchain, visit http://139.59.64.145/hashchain/ 
+* To access a live Multichain web-demo, visit http://139.59.27.186/multichain-web-demo
+
+* To access a live Multichain Exporer, visit http://139.59.27.186:2750
+
+* To access hashchain, visit http://139.59.27.186/hashchain/
+
+* To authenticate a file using hashchain, visit http://139.59.27.186/hashchain/hashchain_authenticator.php and to verify a file using hashchain, visit http://139.59.27.186/hashchain/
+
+* To access the yobiapps, visit: http://139.59.27.186/yobiapps
 
 
 Planned roadmap
