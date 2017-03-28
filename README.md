@@ -101,8 +101,6 @@ Live demo
 
 * To access a live Multichain Exporer, visit http://139.59.27.186:2750
 
-* To access hashchain, visit http://139.59.27.186/hashchain/
-
 * To authenticate a file using hashchain, visit http://139.59.27.186/hashchain/hashchain_authenticator.php and to verify a file using hashchain, visit http://139.59.27.186/hashchain/
 
 * To access the yobiapps, visit: http://139.59.27.186/yobiapps
