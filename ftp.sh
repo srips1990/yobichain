@@ -53,3 +53,9 @@ echo ''
 echo ''
 echo ''
 echo ''
+
+echo -e ${LIGHTGREEN}${bold}'----------------------------------------'
+echo -e 'SECURE FTP SUCCESSFULLY SET UP!'
+echo -e '----------------------------------------'${normal}${NC}
+echo ''
+echo ''
