@@ -51,7 +51,7 @@ This section presumes that you have root permission and want to install Yobichai
     sudo bash -e ftp.sh <username> <password>
 
 
-**Step 4.** Install, configure and run the Multichain blockchain, Multichain web-demo and Multichain Exporer. This also sets up HashChain, PrimeVault, PrimeContract and YobiWallet. The RPC port will be set as `15590` and the Network port will be set as `61172`
+**Step 4.** Install, configure and run the Multichain blockchain, Multichain web-demo and Multichain Exporer. This also sets up HashChain, PrimeVault, PrimeContract and YobiWallet. The RPC port will be set as `15590` and the Network port will be set as `61172`. If you get a "locale error" using Terminal on mac, go to Terminal -> Preferences -> Profiles and uncheck "Set locale environment variables on startup"
 
     sudo bash -e multichain.sh <chain-name> <rpc-username> <rpc-password>
 		
