@@ -89,6 +89,7 @@ su -l $username -c "sed -ie 's/.*mining-requires-peers =.*\#/mining-requires-pee
 su -l $username -c "sed -ie 's/.*initial-block-reward =.*\#/initial-block-reward = 0     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*first-block-reward =.*\#/first-block-reward = -1     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*target-adjust-freq =.*\#/target-adjust-freq = 172800     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*allow-min-difficulty-blocks =.*\#/allow-min-difficulty-blocks = true     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*max-std-tx-size =.*\#/max-std-tx-size = 100000000     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*max-std-op-returns-count =.*\#/max-std-op-returns-count = 1024     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*max-std-op-return-size =.*\#/max-std-op-return-size = 8388608     #/g' /home/"$username"/.multichain/$chainname/params.dat"

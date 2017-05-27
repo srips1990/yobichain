@@ -69,12 +69,12 @@ echo 'net.ipv6.conf.lo.disable_ipv6 = 1' >> /etc/sysctl.conf
 sudo sysctl -p
 
 
-sleep 3
-echo '----------------------------------------'
-echo -e ${CYAN}${bold}'DISABLING IRQ BALANCE:'${normal}${LIGHTYELLOW}
-echo '----------------------------------------'
+# sleep 3
+# echo '----------------------------------------'
+# echo -e ${CYAN}${bold}'DISABLING IRQ BALANCE:'${normal}${LIGHTYELLOW}
+# echo '----------------------------------------'
 
-sudo sed -ie 's/ENABLED=.*/ENABLED="0"/g' /etc/default/irqbalance
+# sudo sed -ie 's/ENABLED=.*/ENABLED="0"/g' /etc/default/irqbalance
 
 
 sleep 3
