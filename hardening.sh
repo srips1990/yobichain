@@ -1,20 +1,20 @@
 #!/bin/bash
-export TERM=xterm-color
+# export TERM=xterm-color
 
-NC='\033[0m' # No Color
-RED='\033[0;31m'
-LIGHTGREEN='\033[1;32m'
-CYAN='\033[0;36m'
-LIGHTYELLOW='\033[1;33m'
-bold=$(tput bold)
-normal=$(tput sgr0)
+# NC='\033[0m' # No Color
+# RED='\033[0;31m'
+# LIGHTGREEN='\033[1;32m'
+# CYAN='\033[0;36m'
+# LIGHTYELLOW='\033[1;33m'
+# bold=$(tput bold)
+# normal=$(tput sgr0)
 
 username='yobiuser'
 passwd=$1		#Getting password from command line args
 
 # Update the system
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'UPDATING THE SYSTEM:'${normal}${LIGHTYELLOW}
+echo -e 'UPDATING THE SYSTEM:'
 echo '----------------------------------------'
 sudo apt-get -y update
 sudo apt-get -y upgrade
@@ -24,7 +24,7 @@ sudo apt-get -y autoclean
 sleep 3
 # Enable automatic security updates
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'ENABLING AUTOMATIC SECURITY UPDATES:'${normal}${LIGHTYELLOW}
+echo -e 'ENABLING AUTOMATIC SECURITY UPDATES:'
 echo '----------------------------------------'
 echo 'unattended-upgrades unattended-upgrades/configure boolean true' | debconf-set-selections
 
@@ -34,7 +34,7 @@ sudo dpkg-reconfigure -plow unattended-upgrades
 
 # Setting up user account
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'SETTING UP $username USER ACCOUNT:'${normal}${LIGHTYELLOW}
+echo -e 'SETTING UP $username USER ACCOUNT:'
 echo '----------------------------------------'
 
 sudo useradd -d /home/$username -s /bin/bash -m $username
@@ -46,7 +46,7 @@ echo '$username ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 sleep 3
 # Setting up swap partition
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'SETTING UP SWAP PARTITION:'${normal}${LIGHTYELLOW}
+echo -e 'SETTING UP SWAP PARTITION:'
 echo '----------------------------------------'
 
 sudo dd if=/dev/zero of=/swapfile bs=4M count=500
@@ -60,7 +60,7 @@ sudo echo vm.swappiness = 20 >> /etc/sysctl.conf
 
 sleep 3
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'DISABLING IPV6:'${normal}${LIGHTYELLOW}
+echo -e 'DISABLING IPV6:'
 echo '----------------------------------------'
 
 echo 'net.ipv6.conf.all.disable_ipv6 = 1' >> /etc/sysctl.conf
@@ -71,7 +71,7 @@ sudo sysctl -p
 
 # sleep 3
 # echo '----------------------------------------'
-# echo -e ${CYAN}${bold}'DISABLING IRQ BALANCE:'${normal}${LIGHTYELLOW}
+# echo -e 'DISABLING IRQ BALANCE:'
 # echo '----------------------------------------'
 
 # sudo sed -ie 's/ENABLED=.*/ENABLED="0"/g' /etc/default/irqbalance
@@ -79,7 +79,7 @@ sudo sysctl -p
 
 sleep 3
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'VERIFYING OPENSSL VERSION:'${normal}${LIGHTYELLOW}
+echo -e 'VERIFYING OPENSSL VERSION:'
 echo '----------------------------------------'
 
 sudo apt-get -y update
@@ -89,7 +89,7 @@ sudo apt-cache policy openssl libssl-dev
 
 sleep 3
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'SECURING SHARED MEMORY:'${normal}${LIGHTYELLOW}
+echo -e 'SECURING SHARED MEMORY:'
 echo '----------------------------------------'
 
 echo 'tmpfs     /run/shm    tmpfs     ro,noexec,nosuid        0       0' >> /etc/fstab
@@ -98,7 +98,7 @@ sudo mount -a
 
 sleep 3
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'SECURING /tmp:'${normal}${LIGHTYELLOW}
+echo -e 'SECURING /tmp:'
 echo '----------------------------------------'
 
 sudo dd if=/dev/zero of=/usr/tmpDSK bs=1024 count=1024000
@@ -122,7 +122,7 @@ sudo mount -a
 
 sleep 3
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'SECURING /var/tmp:'${normal}${LIGHTYELLOW}
+echo -e 'SECURING /var/tmp:'
 echo '----------------------------------------'
 
 #create a symbolic link that makes /var/tmp point to /tmp.
@@ -133,7 +133,7 @@ sudo cp -avr /var/tmpold/* /tmp/
 
 sleep 3
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'SET SECURITY LIMITS:'${normal}${LIGHTYELLOW}
+echo -e 'SET SECURITY LIMITS:'
 echo '----------------------------------------'
 
 echo 'user1 hard nproc 100' >> /etc/security/limits.conf
@@ -141,7 +141,7 @@ echo 'user1 hard nproc 100' >> /etc/security/limits.conf
 
 sleep 3
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'SECURING SERVER AGAINST BASH VULNERABILITY:'${normal}${LIGHTYELLOW}
+echo -e 'SECURING SERVER AGAINST BASH VULNERABILITY:'
 echo '----------------------------------------'
 
 sudo apt-get -y update
@@ -149,7 +149,7 @@ sudo apt-get -y install --only-upgrade bash
 
 echo ''
 echo ''
-echo -e ${CYAN}${bold}'----------HARDENING SUCCESSFUL----------'${normal}${NC}
+echo -e '----------HARDENING SUCCESSFUL----------'
 echo ''
 echo ''
 echo ''

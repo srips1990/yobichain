@@ -1,21 +1,21 @@
 #!/bin/bash
 
-export TERM=xterm-color
+# export TERM=xterm-color
 
-NC='\033[0m' # No Color
-RED='\033[0;31m'
-LIGHTGREEN='\033[1;32m'
-CYAN='\033[0;36m'
-LIGHTYELLOW='\033[1;33m'
-bold=$(tput bold)
-normal=$(tput sgr0)
+# NC='\033[0m' # No Color
+# RED='\033[0;31m'
+# LIGHTGREEN='\033[1;32m'
+# CYAN='\033[0;36m'
+# LIGHTYELLOW='\033[1;33m'
+# bold=$(tput bold)
+# normal=$(tput sgr0)
 
 username=$(whoami)
 ftpusername=$1
 ftppasswd=$2
 
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'INSTALLING PREREQUISITES.....'${normal}${LIGHTYELLOW}
+echo -e 'INSTALLING PREREQUISITES.....'
 echo '----------------------------------------'
 
 sudo apt-get --assume-yes update
@@ -23,7 +23,7 @@ sudo apt-get --assume-yes install vsftpd
 
 echo ''
 echo ''
-echo '----------------------------------------'${normal}${NC}
+echo '----------------------------------------'
 echo ''
 echo ''
 echo ''
@@ -31,7 +31,7 @@ echo ''
 
 
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'CONFIGURING FTP.....'${normal}${LIGHTYELLOW}
+echo -e 'CONFIGURING FTP.....'
 echo '----------------------------------------'
 
 sudo useradd -d /var/www/html $ftpusername
@@ -48,14 +48,14 @@ sudo chmod u+w /var/www/html
 
 echo ''
 echo ''
-echo '----------------------------------------'${normal}${NC}
+echo '----------------------------------------'
 echo ''
 echo ''
 echo ''
 echo ''
 
-echo -e ${LIGHTGREEN}${bold}'----------------------------------------'
+echo -e '----------------------------------------'
 echo -e 'SECURE FTP SUCCESSFULLY SET UP!'
-echo -e '----------------------------------------'${normal}${NC}
+echo -e '----------------------------------------'
 echo ''
 echo ''

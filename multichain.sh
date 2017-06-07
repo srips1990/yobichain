@@ -1,13 +1,13 @@
 #!/bin/bash
-export TERM=xterm-color
+# export TERM=xterm-color
 
-NC='\033[0m' # No Color
-RED='\033[0;31m'
-LIGHTGREEN='\033[1;32m'
-CYAN='\033[0;36m'
-LIGHTYELLOW='\033[1;33m'
-bold=$(tput bold)
-normal=$(tput sgr0)
+# NC='\033[0m' # No Color
+# RED='\033[0;31m'
+# LIGHTGREEN='\033[1;32m'
+# CYAN='\033[0;36m'
+# LIGHTYELLOW='\033[1;33m'
+# bold=$(tput bold)
+# normal=$(tput sgr0)
 
 chainname=$1
 rpcuser=$2
@@ -23,7 +23,7 @@ phpinipath='/etc/php/7.0/apache2/php.ini'
 username='yobiuser'
 
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'INSTALLING PREREQUISITES.....'${normal}${LIGHTYELLOW}
+echo -e 'INSTALLING PREREQUISITES.....'
 echo '----------------------------------------'
 
 cd .. 
@@ -53,7 +53,7 @@ echo ''
 
 sleep 3
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'CONFIGURING FIREWALL.....'${normal}${LIGHTYELLOW}
+echo -e 'CONFIGURING FIREWALL.....'
 echo '----------------------------------------'
 
 sudo ufw allow $networkport
@@ -69,12 +69,12 @@ echo ''
 echo ''
 echo ''
 
-echo -e ${LIGHTGREEN}${bold}'----------------------------------------'
+echo -e '----------------------------------------'
 echo -e 'FIREWALL SUCCESSFULLY CONFIGURED!'
-echo -e '----------------------------------------'${normal}${NC}
+echo -e '----------------------------------------'
 
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'INSTALLING & CONFIGURING MULTICHAIN.....'${normal}${LIGHTYELLOW}
+echo -e 'INSTALLING & CONFIGURING MULTICHAIN.....'
 echo '----------------------------------------'
 
 sudo bash -c 'chmod -R 777 /var/www/html'
@@ -113,7 +113,7 @@ echo ''
 echo ''
 
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'RUNNING BLOCKCHAIN.....'${normal}${LIGHTYELLOW}
+echo -e 'RUNNING BLOCKCHAIN.....'
 echo '----------------------------------------'
 
 su -l $username -c 'multichaind '$chainname' -daemon'
@@ -127,7 +127,7 @@ echo ''
 echo ''
 
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'LOADING CONFIGURATION.....'${normal}${LIGHTYELLOW}
+echo -e 'LOADING CONFIGURATION.....'
 echo '----------------------------------------'
 
 sleep 6
@@ -147,7 +147,7 @@ echo ''
 
 
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'CREATING AND CONFIGURING STREAMS.....'${normal}${LIGHTYELLOW}
+echo -e 'CREATING AND CONFIGURING STREAMS.....'
 echo '----------------------------------------'
 
 
@@ -196,13 +196,13 @@ echo ''
 echo ''
 echo ''
 
-echo -e ${LIGHTGREEN}${bold}'----------------------------------------'
+echo -e '----------------------------------------'
 echo -e 'BLOCKCHAIN SUCCESSFULLY SET UP!'
-echo -e '----------------------------------------'${normal}${LIGHTYELLOW}
+echo -e '----------------------------------------'
 
 
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'SETTING UP APPLICATIONS.....'${normal}${LIGHTYELLOW}
+echo -e 'SETTING UP APPLICATIONS.....'
 echo '----------------------------------------'
 
 cd /var/www/html	# Changing current directory to web server's root directory
@@ -279,9 +279,9 @@ echo ''
 echo ''
 echo ''
 
-echo -e ${LIGHTGREEN}${bold}'----------------------------------------'
+echo -e '----------------------------------------'
 echo -e 'APPLICATIONS SUCCESSFULLY SET UP!'
-echo -e '----------------------------------------'${normal}${NC}
+echo -e '----------------------------------------'
 echo ''
 echo ''
 echo ''

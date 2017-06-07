@@ -1,17 +1,17 @@
 #!/bin/bash
 
-NC='\033[0m' # No Color
-RED='\033[0;31m'
-LIGHTGREEN='\033[1;32m'
-CYAN='\033[0;36m'
-LIGHTYELLOW='\033[1;33m'
-bold=$(tput bold)
-normal=$(tput sgr0)
+# NC='\033[0m' # No Color
+# RED='\033[0;31m'
+# LIGHTGREEN='\033[1;32m'
+# CYAN='\033[0;36m'
+# LIGHTYELLOW='\033[1;33m'
+# bold=$(tput bold)
+# normal=$(tput sgr0)
 
 username='yobiuser'
 
 echo '----------------------------------------'
-echo -e ${CYAN}${bold}'RESTORING.....'${normal}${NC}
+echo -e 'RESTORING.....'
 echo '----------------------------------------'
 
 ps axf | grep 'multichaind' | grep -v grep | awk '{print "kill -9 " $1}' | sh
