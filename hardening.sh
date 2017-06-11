@@ -40,7 +40,7 @@ echo '----------------------------------------'
 sudo useradd -d /home/$username -s /bin/bash -m $username
 sudo usermod -a -G sudo $username
 echo $username":"$passwd | sudo chpasswd
-echo '$username ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+echo "$username ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 
 sleep 3
