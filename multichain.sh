@@ -29,7 +29,7 @@ echo '----------------------------------------'
 cd .. 
 
 sudo apt-get --assume-yes update
-sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php-curl sqlite3 libsqlite3-dev python-dev gcc python-pip
+sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php-curl php7.0-curl sqlite3 libsqlite3-dev python-dev gcc python-pip
 sudo pip install --upgrade pip
 
 wget https://pypi.python.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz
