@@ -95,13 +95,13 @@ In case something goes wrong, you can roll back the multichain installation usin
 
 Live demo
 ---------
-* To access a live Multichain web-demo, visit http://139.59.27.186/multichain-web-demo
+* To access a live Multichain web-demo, visit http://52.172.209.229/multichain-web-demo
 
-* To access a live Multichain Exporer, visit http://139.59.27.186:2750
+* To access a live Multichain Exporer, visit http://52.172.209.229:2750
 
-* To authenticate a file using hashchain, visit http://139.59.27.186/hashchain/hashchain_authenticator.php and to verify a file using hashchain, visit http://139.59.27.186/hashchain/
+* To authenticate a file using hashchain, visit http://52.172.209.229/hashchain/hashchain_authenticator.php and to verify a file using hashchain, visit http://52.172.209.229/hashchain/
 
-* To access the yobiapps, visit: http://139.59.27.186/yobiapps
+* To access the yobiapps, visit: http://52.172.209.229/yobiapps
 
 
 Planned roadmap
@@ -109,7 +109,6 @@ Planned roadmap
 + ~~[ ] Installation of PrimeVault~~ **done**
 + ~~[ ] Installation of PrimeContract~~ **done**
 + ~~[ ] Installation of YobiWallet~~ **done**
-+ [ ] Installation of MEAN (MongoDB, Express, AngularJS, Node.js)
 
 
 Contributors
