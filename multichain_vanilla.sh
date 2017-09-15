@@ -12,7 +12,8 @@
 chainname=$1
 rpcuser=$2
 rpcpassword=$3
-protocol=10007
+multichainVersion='1.0'
+# protocol=10008
 networkport=61172
 rpcport=15590
 explorerport=2750
@@ -77,13 +78,16 @@ echo -e 'INSTALLING & CONFIGURING MULTICHAIN.....'
 echo '----------------------------------------'
 
 sudo bash -c 'chmod -R 777 /var/www/html'
-wget --no-verbose http://www.multichain.com/download/multichain-latest.tar.gz
-sudo bash -c 'tar xvf multichain-latest.tar.gz'
-sudo bash -c 'cp multichain-1.0-*/multichain* /usr/local/bin/'
+wget --no-verbose http://www.multichain.com/download/multichain-1.0-beta-1.tar.gz
+sudo bash -c 'tar xvf multichain-1.0-beta-1.tar.gz'
+sudo bash -c 'cp multichain-'$multichainVersion'*/multichain* /usr/local/bin/'
 
-su -l $username -c  'multichain-util create '$chainname $protocol
+su -l $username -c  'multichain-util create '$chainname #$protocol
 
 su -l $username -c "sed -ie 's/.*root-stream-open =.*\#/root-stream-open = false     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*admin-consensus-admin =.*\#/admin-consensus-admin = 0.0     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*admin-consensus-activate =.*\#/admin-consensus-activate = 0.0     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*admin-consensus-mine =.*\#/admin-consensus-mine = 0.0     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*mining-requires-peers =.*\#/mining-requires-peers = true     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*initial-block-reward =.*\#/initial-block-reward = 0     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*first-block-reward =.*\#/first-block-reward = -1     #/g' /home/"$username"/.multichain/$chainname/params.dat"
