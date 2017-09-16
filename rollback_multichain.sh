@@ -21,8 +21,9 @@ rm -rf /var/www/html/yobiapps
 rm -rf /var/www/html/multichain-web-demo
 ps axf | grep 'python -m Mce.abe --config' | grep -v grep | awk '{print "kill -9 " $1}' | sh
 rm -rf /home/$username/multichain-explorer/
+rm -rf /home/$username/multichain-1.0*
 rm -rf /var/www/html/default_configs
-rm -rf /var/www/html/multichain-1.0-alpha*
+rm -rf /var/www/html/multichain-1.0*
 
 echo ''
 echo ''
