@@ -13,7 +13,7 @@ chainname=$1
 rpcuser=$2
 rpcpassword=$3
 multichainVersion='1.0'
-# protocol=10008
+protocol=10009
 networkport=61172
 rpcport=15590
 explorerport=2750
@@ -100,7 +100,7 @@ su -l $username -c "sed -ie 's/.*max-std-element-size =.*\#/max-std-element-size
 su -l $username -c "sed -ie 's/.*default-network-port =.*\#/default-network-port = '$networkport'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*default-rpc-port =.*\#/default-rpc-port = '$rpcport'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*chain-name =.*\#/chain-name = '$chainname'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
-su -l $username -c " sed -ie 's/.*protocol-version =.*\#/protocol-version = '$protocol'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+# su -l $username -c " sed -ie 's/.*protocol-version =.*\#/protocol-version = '$protocol'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 
 su -l $username -c "echo rpcuser='$rpcuser' > /home/$username/.multichain/$chainname/multichain.conf"
 su -l $username -c "echo rpcpassword='$rpcpassword' >> /home/$username/.multichain/$chainname/multichain.conf"

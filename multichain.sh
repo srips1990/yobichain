@@ -14,7 +14,7 @@ rpcuser=$2
 rpcpassword=$3
 assetName='yobicoin'
 multichainVersion='1.0'
-# protocol=10008
+protocol=10009
 networkport=61172
 rpcport=15590
 explorerport=2750
@@ -83,7 +83,7 @@ wget --no-verbose http://www.multichain.com/download/multichain-latest.tar.gz
 sudo bash -c 'tar xvf multichain-latest.tar.gz'
 sudo bash -c 'cp multichain-'$multichainVersion'*/multichain* /usr/local/bin/'
 
-su -l $username -c  'multichain-util create '$chainname #$protocol
+su -l $username -c  'multichain-util create '$chainname
 
 su -l $username -c "sed -ie 's/.*root-stream-open =.*\#/root-stream-open = false     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*admin-consensus-admin =.*\#/admin-consensus-admin = 0.0     #/g' /home/"$username"/.multichain/$chainname/params.dat"
@@ -102,7 +102,7 @@ su -l $username -c "sed -ie 's/.*max-std-element-size =.*\#/max-std-element-size
 su -l $username -c "sed -ie 's/.*default-network-port =.*\#/default-network-port = '$networkport'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*default-rpc-port =.*\#/default-rpc-port = '$rpcport'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*chain-name =.*\#/chain-name = '$chainname'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
-su -l $username -c " sed -ie 's/.*protocol-version =.*\#/protocol-version = '$protocol'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+# su -l $username -c " sed -ie 's/.*protocol-version =.*\#/protocol-version = '$protocol'     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 
 su -l $username -c "echo rpcuser='$rpcuser' > /home/$username/.multichain/$chainname/multichain.conf"
 su -l $username -c "echo rpcpassword='$rpcpassword' >> /home/$username/.multichain/$chainname/multichain.conf"
