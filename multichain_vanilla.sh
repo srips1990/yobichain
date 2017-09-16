@@ -78,8 +78,8 @@ echo -e 'INSTALLING & CONFIGURING MULTICHAIN.....'
 echo '----------------------------------------'
 
 sudo bash -c 'chmod -R 777 /var/www/html'
-wget --no-verbose http://www.multichain.com/download/multichain-1.0-beta-1.tar.gz
-sudo bash -c 'tar xvf multichain-1.0-beta-1.tar.gz'
+wget --no-verbose http://www.multichain.com/download/multichain-latest.tar.gz
+sudo bash -c 'tar xvf multichain-latest.tar.gz'
 sudo bash -c 'cp multichain-'$multichainVersion'*/multichain* /usr/local/bin/'
 
 su -l $username -c  'multichain-util create '$chainname #$protocol
