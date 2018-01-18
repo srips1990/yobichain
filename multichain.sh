@@ -225,19 +225,6 @@ sudo sed -ie 's/MANAGER_ADDRESS =.*;/MANAGER_ADDRESS = "'$addr'";/g' /var/www/ht
 
 
 ###
-## INSTALLING & CONFIGURING YOBIAPPS
-###
-git clone https://github.com/Primechain/yobiapps.git
-
-# Configuring Yobiapps
-sudo sed -ie 's/$CHAIN_NAME =.*;/$CHAIN_NAME = "'$chainname'";/g' /var/www/html/yobiapps/config.php
-sudo sed -ie 's/RPC_USER =.*;/RPC_USER = "'$rpcuser'";/g' /var/www/html/yobiapps/config.php
-sudo sed -ie 's/RPC_PASSWORD =.*;/RPC_PASSWORD = "'$rpcpassword'";/g' /var/www/html/yobiapps/config.php
-sudo sed -ie 's/RPC_PORT =.*;/RPC_PORT = "'$rpcport'";/g' /var/www/html/yobiapps/config.php
-sudo sed -ie 's/MANAGER_ADDRESS =.*;/MANAGER_ADDRESS = "'$addr'";/g' /var/www/html/yobiapps/config.php
-
-
-###
 ## INSTALLING & CONFIGURING MULTICHAIN WEB DEMO
 ###
 git clone https://github.com/MultiChain/multichain-web-demo.git
