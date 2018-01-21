@@ -5,15 +5,7 @@ Yobichain
 
 ![Image of Yobi](http://www.primechaintech.com/assets/base/img/content/github/github_yobichain.png)
 
-YobiChain is your very own private blockchain ecosystem preloaded with development tools, database, web & FTP servers and the following 4 blockchain applications:
-
-1. HashChain, a simple blockchain powered drag n drop solution for authenticating and verifying electronic records.
-
-2. PrimeVault, a simple blockchain powered document storage and retrieval system.
-
-3. PrimeContract, a simple blockchain powered system for digitally signng contracts.
-
-4. YobiWallet, a simple blockchain powered wallet for Yobicoins, a smart asset.
+YobiChain is your very own private blockchain ecosystem preloaded with database, web & FTP servers and HashChain, a simple blockchain powered drag n drop solution for authenticating and verifying electronic records.
 
 Yobichain is maintained by [Primechain Technologies Pvt. Ltd.](http://www.primechain.in). This version of Yobichain runs on [Multichain](https://github.com/MultiChain).
 
@@ -59,13 +51,6 @@ To access Multichain Exporer, visit `http://<IP Address>:2750`
 
 To use hashchain, see the instructions at [https://github.com/Primechain/hashchain/blob/master/README.md](https://github.com/Primechain/hashchain/blob/master/README.md)
 
-To use PrimeVault, see the instructions at [https://github.com/Primechain/yobiapps/blob/master/README.md#primevault](https://github.com/Primechain/yobiapps/blob/master/README.md#primevault)
-
-To use PrimeContract, see the instructions at [https://github.com/Primechain/yobiapps/blob/master/README.md#primecontract](https://github.com/Primechain/yobiapps/blob/master/README.md#primecontract)
-
-
-To use YobiWallet, see the instructions at [https://github.com/Primechain/yobiapps/blob/master/README.md#yobiwallet](https://github.com/Primechain/yobiapps/blob/master/README.md#yobiwallet)
-
 
 Notes
 -----
@@ -83,32 +68,9 @@ This will:
 
 6. set up HashChain, a simple blockchain powered drag n drop solution for authenticating and verifying electronic records.
 
-7. set up PrimeVault, a simple blockchain powered document storage and retrieval system.
-
-8. set up PrimeContract, a simple blockchain powered system for digitally signng contracts.
-
-9. set up YobiWallet, a simple blockchain powered wallet for Yobicoins, a smart asset.
-
 In case something goes wrong, you can roll back the multichain installation using
 
     bash rollback_multichain.sh 
-
-Live demo
----------
-* To access a live Multichain web-demo, visit http://52.172.209.229/multichain-web-demo
-
-* To access a live Multichain Exporer, visit http://52.172.209.229:2750
-
-* To authenticate a file using hashchain, visit http://52.172.209.229/hashchain/hashchain_authenticator.php and to verify a file using hashchain, visit http://52.172.209.229/hashchain/
-
-* To access the yobiapps, visit: http://52.172.209.229/yobiapps
-
-
-Planned roadmap
------
-+ ~~[ ] Installation of PrimeVault~~ **done**
-+ ~~[ ] Installation of PrimeContract~~ **done**
-+ ~~[ ] Installation of YobiWallet~~ **done**
 
 
 Contributors
