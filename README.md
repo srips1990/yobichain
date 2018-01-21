@@ -3,7 +3,7 @@ Yobichain
 
 > WARNING: Yobichain is intended for experimenting and learning, NOT for a production environment.
 
-![Image of Yobi](http://www.primechain.in/img/github_yobichain.png)
+![Image of Yobi](http://www.primechaintech.com/assets/base/img/content/github/github_yobichain.png)
 
 YobiChain is your very own private blockchain ecosystem preloaded with development tools, database, web & FTP servers and the following 4 blockchain applications:
 
