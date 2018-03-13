@@ -12,7 +12,7 @@
 chainname=$1
 rpcuser=$2
 rpcpassword=$3
-multichainVersion='1.0'
+multichainVersion='1.0.4'
 protocol=10009
 networkport=61172
 rpcport=15590
@@ -29,7 +29,7 @@ echo '----------------------------------------'
 cd .. 
 
 sudo apt-get --assume-yes update
-sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php-curl sqlite3 libsqlite3-dev python-dev gcc python-pip
+sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php7.0-curl sqlite3 libsqlite3-dev python-dev gcc python-pip
 sudo pip install --upgrade pip
 
 wget https://pypi.python.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz
@@ -91,7 +91,9 @@ su -l $username -c "sed -ie 's/.*admin-consensus-mine =.*\#/admin-consensus-mine
 su -l $username -c "sed -ie 's/.*mining-requires-peers =.*\#/mining-requires-peers = true     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*initial-block-reward =.*\#/initial-block-reward = 0     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*first-block-reward =.*\#/first-block-reward = -1     #/g' /home/"$username"/.multichain/$chainname/params.dat"
-su -l $username -c "sed -ie 's/.*target-adjust-freq =.*\#/target-adjust-freq = 172800     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*skip-pow-check =.*\#/skip-pow-check = true     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*pow-minimum-bits =.*\#/pow-minimum-bits = 4     #/g' /home/"$username"/.multichain/$chainname/params.dat"
+su -l $username -c "sed -ie 's/.*target-adjust-freq =.*\#/target-adjust-freq = -1     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*max-std-tx-size =.*\#/max-std-tx-size = 100000000     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*max-std-op-returns-count =.*\#/max-std-op-returns-count = 1024     #/g' /home/"$username"/.multichain/$chainname/params.dat"
 su -l $username -c "sed -ie 's/.*max-std-op-return-size =.*\#/max-std-op-return-size = 8388608     #/g' /home/"$username"/.multichain/$chainname/params.dat"
