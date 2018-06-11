@@ -10,9 +10,11 @@
 # bold=$(tput bold)
 # normal=$(tput sgr0)
 
+source yobichain.conf
+
 username=$(whoami)
-ftpusername=$1
-ftppasswd=$2
+ftpusername=`< /dev/urandom tr -dc A-Za-z0-9 | head -c15; echo`
+ftppasswd=`< /dev/urandom tr -dc A-Za-z0-9 | head -c40; echo`
 
 echo '----------------------------------------'
 echo -e 'INSTALLING PREREQUISITES.....'
@@ -59,3 +61,8 @@ echo -e 'SECURE FTP SUCCESSFULLY SET UP!'
 echo -e '----------------------------------------'
 echo ''
 echo ''
+echo ''
+echo ''
+
+echo 'ftpusername='$ftpusername >> $output_file_path
+echo 'ftppasswd='$ftppasswd >> $output_file_path

@@ -9,18 +9,13 @@
 # bold=$(tput bold)
 # normal=$(tput sgr0)
 
+source yobichain.conf
+
 chainname=$1
-rpcuser=$2
-rpcpassword=$3
-multichainVersion='1.0.4'
-protocol=10010
-networkport=61172
-rpcport=15590
-explorerport=2750
+rpcuser=`< /dev/urandom tr -dc A-Za-z0-9 | head -c15; echo`
+rpcpassword=`< /dev/urandom tr -dc A-Za-z0-9 | head -c40; echo`
 adminNodeName=$chainname'_Admin'
 explorerDisplayName=$chainname
-phpinipath='/etc/php/7.0/apache2/php.ini'
-username='yobiuser'
 
 echo '----------------------------------------'
 echo -e 'INSTALLING PREREQUISITES.....'
@@ -137,3 +132,6 @@ echo ''
 echo ''
 echo ''
 echo ''
+
+echo -e ${normal}${CYAN}'RPC User Name - '${bold}${LIGHTYELLOW}$rpcuser
+echo -e ${normal}${CYAN}'RPC Password - '${bold}${LIGHTYELLOW}$rpcpassword

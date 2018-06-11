@@ -9,19 +9,13 @@
 # bold=$(tput bold)
 # normal=$(tput sgr0)
 
+source yobichain.conf
+
 chainname=$1
-rpcuser=$2
-rpcpassword=$3
-assetName='yobicoin'
-multichainVersion='1.0'
-protocol=10009
-networkport=61172
-rpcport=15590
-explorerport=2750
+rpcuser=`< /dev/urandom tr -dc A-Za-z0-9 | head -c15; echo`
+rpcpassword=`< /dev/urandom tr -dc A-Za-z0-9 | head -c40; echo`
 adminNodeName=$chainname'_Admin'
 explorerDisplayName=$chainname
-phpinipath='/etc/php/7.0/apache2/php.ini'
-username='yobiuser'
 
 echo '----------------------------------------'
 echo -e 'INSTALLING PREREQUISITES.....'
@@ -29,10 +23,25 @@ echo '----------------------------------------'
 
 cd .. 
 
+export DEBIAN_FRONTEND=noninteractive
+sudo sh -c "echo mysql-server-5.7 mysql-server/root_password password "$db_root_pass" | debconf-set-selections"
+sudo sh -c "echo mysql-server-5.7 mysql-server/root_password_again password "$db_root_pass" | debconf-set-selections"
+
+
+# Install the LAMP stack
+sudo apt-add-repository -y ppa:ondrej/php > /dev/null 2>&1
 sudo apt-get --assume-yes update
-sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php-curl php7.0-curl sqlite3 libsqlite3-dev python-dev gcc python-pip
+
+sudo apt-get -y install apache2
+sudo apt-get -y install mysql-server
+sudo apt-get -y install php7.0
+sudo apt-get -y install php7.0-mysql
+
+# Install other pre-requisites
+sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php7.0-curl sqlite3 libsqlite3-dev python-dev gcc python-pip
 sudo pip install --upgrade pip
 
+# Install pycrypto
 wget https://pypi.python.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz
 tar -xvzf pycrypto-2.6.1.tar.gz
 cd pycrypto*
@@ -42,6 +51,7 @@ cd ..
 ## Configuring PHP-Curl
 sudo sed -ie 's/;extension=php_curl.dll/extension=php_curl.dll/g' $phpinipath
 
+# restart Apache
 sudo service apache2 restart
 
 echo ''
@@ -277,3 +287,6 @@ echo ''
 echo ''
 echo ''
 echo ''
+
+echo 'rpcuser='$rpcuser >> $output_file_path
+echo 'rpcpassword='$rpcpassword >> $output_file_path

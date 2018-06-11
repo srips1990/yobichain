@@ -10,7 +10,7 @@
 # normal=$(tput sgr0)
 
 username='yobiuser'
-passwd=$1		#Getting password from command line args
+passwd=`< /dev/urandom tr -dc A-Za-z0-9 | head -c40; echo`		#Getting password from command line args
 
 # Update the system
 echo '----------------------------------------'
@@ -23,14 +23,14 @@ sudo apt-get -y autoclean
 
 sleep 3
 # Enable automatic security updates
-echo '----------------------------------------'
-echo -e 'ENABLING AUTOMATIC SECURITY UPDATES:'
-echo '----------------------------------------'
-echo 'unattended-upgrades unattended-upgrades/configure boolean true' | debconf-set-selections
+# echo '----------------------------------------'
+# echo -e 'ENABLING AUTOMATIC SECURITY UPDATES:'
+# echo '----------------------------------------'
+# echo 'unattended-upgrades unattended-upgrades/configure boolean true' | debconf-set-selections
 
-sudo apt-get --assume-yes install unattended-upgrades
-sleep 4
-sudo dpkg-reconfigure -plow unattended-upgrades
+# sudo apt-get --assume-yes install unattended-upgrades
+# sleep 4
+# sudo dpkg-reconfigure -plow unattended-upgrades
 
 # Setting up user account
 echo '----------------------------------------'
