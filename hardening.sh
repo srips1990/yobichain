@@ -34,7 +34,7 @@ sleep 3
 
 # Setting up user account
 echo '----------------------------------------'
-echo -e 'SETTING UP $username USER ACCOUNT:'
+echo -e 'SETTING UP '$username' USER ACCOUNT:'
 echo '----------------------------------------'
 
 sudo useradd -d /home/$username -s /bin/bash -m $username

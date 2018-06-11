@@ -8,11 +8,11 @@ then
 fi
 
 sudo bash -e hardening.sh
-sudo bash -e ftp.sh
 sudo bash -e multichain.sh $1
+sudo bash -e ftp.sh
 
 echo -e '----------------------------------------'
-echo -e 'BLOCKCHAIN SUCCESSFULLY SET UP!'
+echo -e 'CREDENTIALS:'
 echo -e '----------------------------------------'
 echo ''
 echo ''
