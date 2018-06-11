@@ -14,6 +14,7 @@ source yobichain.conf
 chainname=$1
 rpcuser=`< /dev/urandom tr -dc A-Za-z0-9 | head -c15; echo`
 rpcpassword=`< /dev/urandom tr -dc A-Za-z0-9 | head -c40; echo`
+db_root_pass=`< /dev/urandom tr -dc A-Za-z0-9 | head -c40; echo`
 adminNodeName=$chainname'_Admin'
 explorerDisplayName=$chainname
 
@@ -89,8 +90,8 @@ echo -e 'INSTALLING & CONFIGURING MULTICHAIN.....'
 echo '----------------------------------------'
 
 sudo bash -c 'chmod -R 777 /var/www/html'
-wget --no-verbose http://www.multichain.com/download/multichain-latest.tar.gz
-sudo bash -c 'tar xvf multichain-latest.tar.gz'
+wget --no-verbose http://www.multichain.com/download/multichain-$multichainVersion.tar.gz
+sudo bash -c 'tar xvf multichain-'$multichainVersion'.tar.gz'
 sudo bash -c 'cp multichain-'$multichainVersion'*/multichain* /usr/local/bin/'
 
 su -l $username -c  'multichain-util create '$chainname
@@ -290,3 +291,5 @@ echo ''
 
 echo 'rpcuser='$rpcuser >> $output_file_path
 echo 'rpcpassword='$rpcpassword >> $output_file_path
+echo 'mysql_root_user_name=root' >> $output_file_path
+echo 'mysql_root_pass='$db_root_pass >> $output_file_path
