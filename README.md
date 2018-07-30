@@ -1,14 +1,13 @@
-Yobichain: Build your own blockchain in minutes
-=========
+# Yobichain: Build your own blockchain in minutes
 
 > WARNING: Yobichain is intended for experimenting and learning, NOT for a production environment.
 
 ![Image of Yobi](http://www.primechaintech.com/assets/base/img/content/github/github_yobichain.png)
 
-YobiChain is your very own private blockchain ecosystem preloaded with database, web & FTP servers and HashChain, a simple blockchain powered drag n drop solution for authenticating and verifying electronic records.
 
-Yobichain is maintained by Yobichain is maintained by Sripathi Srinivasan, Blockchain Engineer, Primechain Technologies Private Limited.
-[Primechain Technologies Pvt. Ltd.](http://www.primechaintech.com). Yobichain runs on [Multichain](https://github.com/MultiChain).
+YobiChain is your very own private blockchain ecosystem preloaded with a database server, web server, FTP server, D.A.V.E. (Data Authentication & Verification) and S.A.M. (Smart Asset Management). Yobichain runs on the [Multichain](https://github.com/MultiChain) blockchain framework.
+
+Yobichain is maintained by Sripathi Srinivasan, Blockchain Engineer, [Primechain Technologies Pvt. Ltd.](http://www.primechaintech.com). 
 
 YobiChain is ideal for
 
@@ -17,21 +16,14 @@ YobiChain is ideal for
 * In-house teams experimenting with blockchain technology.
 
 
-System Requirements
--------------------
+## Installation
 
-To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running Ubuntu 16.04.2 x64. 
-
-Installation
-------------
-
-This section presumes that you have root access to the server mentioned above and want to install Yobichain for all users on the system.
+To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running Ubuntu 16.04.2 x64. This section presumes that you have root access to the server mentioned above and want to install Yobichain for all users on the system.
 
 **Step 1.**  Install git and clone the yobichain repository
 
     sudo git clone https://github.com/Primechain/yobichain
 	
-
 **Step 2.** 
 
     cd yobichain/setup
@@ -70,33 +62,18 @@ This section presumes that you have root access to the server mentioned above an
 **Step 9.** 
 
     You'll receive an activation link on the registered email ID. Click on it to receive login credentials via email.
--------------------------
+    
+    To access the Yobichain web application, visit 'http://<IP Address>yobichain-web'
 
-To access Multichain Exporer, visit `http://<IP Address>:2750`
+    To access Multichain Exporer, visit 'http://<IP Address>:2750'
 
-To access PHPMyAdmin, visit `http://<IP Address>/mysql_dashboard`
+    To access PHPMyAdmin, visit 'http://<IP Address>/mysql_dashboard'
+    
+    To access hashchain visit 'http://<IP Address>/hashchain'
 
-To use hashchain, see the instructions at [https://github.com/Primechain/hashchain/blob/master/README.md](https://github.com/Primechain/hashchain/blob/master/README.md)
-
-
-Notes
------
-
-This will:
-1. harden the base operating system against cyber attacks
-
-2. set up a Multichain blockchain using a pre-defined configuration
-
-3. set up an FTP server
-
-4. set up Yobichain-Web, a web application for Smart Asset management, Secure storage & retrieval of files.
-
-5. set up Multichain Explorer
-
-6. set up HashChain, a simple blockchain powered drag n drop solution for authenticating and verifying electronic records.
+    To use hashchain, see the instructions at [https://github.com/Primechain/hashchain/blob/master/README.md](https://github.com/Primechain/hashchain/blob/master/README.md)
 
 
-Contributors
--------------
+# Contributors
+
 Yobichain is maintained by Sripathi Srinivasan, Blockchain Engineer, Primechain Technologies Private Limited.
-
