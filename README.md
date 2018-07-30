@@ -7,8 +7,6 @@
 
 YobiChain is your very own private blockchain ecosystem preloaded with a database server, web server, FTP server, D.A.V.E. (Data Authentication & Verification) and S.A.M. (Smart Asset Management). Yobichain runs on the [Multichain](https://github.com/MultiChain) blockchain framework.
 
-Yobichain is maintained by Sripathi Srinivasan, Blockchain Engineer, [Primechain Technologies Pvt. Ltd.](http://www.primechaintech.com). 
-
 YobiChain is ideal for
 
 * Startups looking to quickly build a blockchain powered prototype, PoC or MVP.
@@ -62,4 +60,4 @@ To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running Ubunt
 
 ## Contributors
 
-Yobichain is maintained by Sripathi Srinivasan, Blockchain Engineer, Primechain Technologies Private Limited.
+Yobichain is maintained by Sripathi Srinivasan, Blockchain Engineer, [Primechain Technologies Pvt. Ltd.](http://www.primechaintech.com). 
