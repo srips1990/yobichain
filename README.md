@@ -71,9 +71,6 @@ To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running Ubunt
     
     To access hashchain visit 'http://<IP Address>/hashchain'
 
-    To use hashchain, see the instructions at [https://github.com/Primechain/hashchain/blob/master/README.md](https://github.com/Primechain/hashchain/blob/master/README.md)
-
-
 # Contributors
 
 Yobichain is maintained by Sripathi Srinivasan, Blockchain Engineer, Primechain Technologies Private Limited.
