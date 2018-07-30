@@ -59,9 +59,7 @@ To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running Ubunt
 
     Click on "Create new user" and register a user.
 
-**Step 9.** 
-
-    You'll receive an activation link on the registered email ID. Click on it to receive login credentials via email.
+**Step 9.** You'll receive an activation link on the registered email ID. Click on it to receive login credentials via email.
     
     To access the Yobichain web application, visit 'http://<IP Address>yobichain-web'
 
