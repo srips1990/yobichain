@@ -30,7 +30,7 @@ To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running Ubunt
 
     sudo nano yobichain.conf
 	
-**Step 4.** Harden the operating system, install multichain, phpmyadmin and the FTP server.
+**Step 4.** Harden the operating system, install and configure multichain, phpmyadmin and the FTP server.
 
     sudo bash -e master.sh
 
@@ -44,9 +44,7 @@ To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running Ubunt
     
     http://<ip_address>/yobichain-web
 	
-**Step 8.** 
-
-    Click on "Create new user" and register a user.
+**Step 8.** Click on "Create new user" and register a user.
 
 **Step 9.** You'll receive an activation link on the registered email ID. Click on it to receive login credentials via email.
     
