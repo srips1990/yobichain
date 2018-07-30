@@ -24,35 +24,26 @@ To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running Ubunt
 
     sudo git clone https://github.com/Primechain/yobichain
 	
-**Step 2.** 
+**Step 2.** Navigate to the relevant directory.
 
     cd yobichain/setup
 
-**Step 3.** 
+**Step 3.** Modify the values of the sendinblue_api_key and sendgrid_api_key parameters. Send-in-blue is used for transactional SMS (optional) and sendgrid is used for transactional emails.
 
     sudo nano yobichain.conf
 	
-   Modify the values of the following parameters:
-   sendinblue_api_key
-   sendgrid_api_key
-   
-**Step 4.** 
+**Step 4.** Harden the operating system, install multichain, phpmyadmin and the FTP server.
 
     sudo bash -e master.sh
 
-**Step 5.** 
+**Step 5.** Press ENTER when the following prompt appears:
 
-    Press ENTER when the following prompt appears:
 	"Press [ENTER] to continue or ctrl-c to cancel adding it"
    
-**Step 6.** 
+**Step 6.**  Once the setup completes, the credentials for FTP, database & Multichain API are displayed on the screen. Copy and save this on your machine. The output is also stored in yobichain.out under the home directory of the user.
 
-    Once the setup completes, the credentials for FTP, database & Multichain API are displayed on the screen.
-	The output is also stored in yobichain.out under the home directory of the user.
-	
-**Step 7.** 
-
-    Once the setup completes, the Yobichain Web interface can be accessed through the following URL:
+**Step 7.** Once the setup completes, the Yobichain Web interface can be accessed through the following URL:
+    
     http://<ip_address>/yobichain-web
 	
 **Step 8.** 
