@@ -34,7 +34,7 @@
 	class WebServerParams
 	{		
 		public static $hostName;				// IP address or Host Name of the Web Server 
-		const PRIMECHAIN_ROOT_DIR = "yobichain";	// Root directory of Primechain
+		const PRIMECHAIN_ROOT_DIR = "yobichain-web";	// Root directory of Primechain
 
 		public static function init(){
 	        self::$hostName = $_SERVER['HTTP_HOST'];
