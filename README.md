@@ -13,6 +13,14 @@ YobiChain is ideal for
 * Serious researchers / enthusiasts looking to experiment with a live blockchain.
 * In-house teams experimenting with blockchain technology.
 
+## Yobichain demo
+
+1. Register as a new user here: http://yobichain.centralindia.cloudapp.azure.com/yobichain-web/create_user.php
+2. You will receive an activation link by email.
+3. Once you activate your account, your credentials will be emailed to you.
+4. Once you receive your credentials, login from here: http://yobichain.centralindia.cloudapp.azure.com/yobichain-web/login.php
+5. The blockchain explorer is here: http://yobichain.centralindia.cloudapp.azure.com:2750/
+6. You can access hashchain from here: http://yobichain.centralindia.cloudapp.azure.com/hashchain/upload.php
 
 ## Installation
 
