@@ -5,18 +5,8 @@
 $status=(isset($_SESSION['status']) ? $_SESSION['status'] : null); if (is_null($status) || $status!="loggedin") { header("location:logout.php?msg=29");}
 ?>
             <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-7">
-                    <div class="panel panel-warning">
-                        <div class="panel-heading">
-                            Warning Panel
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="row">
-
 
 <?php
 
@@ -148,46 +138,13 @@ $timestamp=date("r", strtotime($timestamp));
                     </table>
                 </div>
 
-               <?php 
-                    if ($ip=="")
-                        { 
-                            echo "
-                            <div class='col-lg-5'>
-                                <div class='panel panel-yellow'>
-                                    <div class='panel-heading'>
-                                        Welcome to Yobichain. 
-                                    </div>
-                                    <div class='panel-body'>
-                                        Since this is your first login to Yobichain, take some time to familiarise yourself with your dashboard as well as the navigation menu on the left.<br/><br/>To logout, click on the <i class='fa fa-user fa-fw'></i> icon on the top right corner of the screen.
-                                    </div>
-                                    <div class='panel-footer'>
-                                        We recommend that you <a href='index.php?role_code=password_change'>change your password</a>.
-                                    </div>
-                                </div>
-                            </div>";
-                        }
-                    else
-                        {
-                            echo "
-                            <div class='col-lg-5'>
-                                <div class='panel panel-yellow'>
-                                    <div class='panel-heading'>
-                                        Previous login
-                                    </div>
-                                    <div class='panel-body'>
-                                        <p>IP address:<br/>".$ip."</p>
-                                        <p>Browser: ".$browser."</p>
-                                        <p>Timestamp: ".$timestamp."</p>
-
-                                    </div>
-                                    <div class='panel-footer'>
-                                        Timestamp is RFC 2822 formatted date
-                                    </div>
-                                </div>
-                            </div>";
-                        }
-                ?>
-
+                <div class='col-lg-5'>
+                    <div class="alert alert-warning">
+                        <img src="images/yobi.png">
+                            <p><strong><br/>
+                            Yobi says: </strong>Welcome to Yobichain. Use S.A.M. (Smart Asset Manager to  create, view, re-issue and send blockchain assets. You can also create and accept offers. Use D.A.V.E. (Data Authentication & Verification Engine) to upload data to blockchain and to view uploaded data.
+                    </div>
+                </div>
 
             </div>
 
