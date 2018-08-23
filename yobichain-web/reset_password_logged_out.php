@@ -37,7 +37,7 @@ elseif ($isEmailRandomCorrect===true)
                                 // for displaying notifications
                                 include_once('primechain_functions/message_display.php');
                                 echo "
-                                <form role='form' action='reset_password_process.php' method='post'>
+                                <form role='form' action='reset_password_logged_out_process.php' method='post'>
                                     <input type='hidden' name='user_email' value='$user_email'>
                                     <input type='hidden' name='random' value='$random'>
                                     <fieldset>
