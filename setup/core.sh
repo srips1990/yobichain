@@ -101,6 +101,7 @@ su -l $linux_admin_user -c "sed -ie 's/.*root-stream-open =.*\#/root-stream-open
 su -l $linux_admin_user -c "sed -ie 's/.*mining-requires-peers =.*\#/mining-requires-peers = true     #/g' $homedir/.multichain/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*initial-block-reward =.*\#/initial-block-reward = 0     #/g' $homedir/.multichain/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*first-block-reward =.*\#/first-block-reward = -1     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -ie 's/.*skip-pow-check =.*\#/skip-pow-check = true     #/g' $homedir/.multichain/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*target-adjust-freq =.*\#/target-adjust-freq = -1     #/g' $homedir/.multichain/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*max-std-tx-size =.*\#/max-std-tx-size = 100000000     #/g' $homedir/.multichain/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*max-std-op-returns-count =.*\#/max-std-op-returns-count = 1024     #/g' $homedir/.multichain/$chainname/params.dat"
