@@ -2,6 +2,9 @@
 
 > WARNING: Yobichain is intended for experimenting and learning, NOT for a production environment.
 
+![Image of Yobi](yobichain-web/images/yobi1.png?raw=true)
+
+
 YobiChain is your very own private blockchain ecosystem preloaded with a database server, web server, FTP server, D.A.V.E. (Data Authentication & Verification) and S.A.M. (Smart Asset Management). Yobichain runs on the [Multichain](https://github.com/MultiChain) blockchain framework.
 
 YobiChain is ideal for
