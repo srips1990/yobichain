@@ -22,7 +22,7 @@ bash -e lamp.sh $db_root_pass
 bash -e phpmyadmin.sh
 bash -e ftp.sh $ftpusername $ftppasswd
 bash -e core.sh $rpcuser $rpcpassword $db_admin_user $db_admin_pass
-bash -e configure-yobichain.sh $db_root_pass $db_admin_user $db_admin_pass
+bash -e configure-yobichain.sh $db_root_pass $db_admin_user $db_admin_pass $yobiweb_user_pass
 
 echo -e \
 '--------------------------------------------'"\n"\
@@ -54,8 +54,8 @@ echo -e \
 '--------------------------------------------'"\n"\
 'YOBICHAIN-WEB CREDENTIALS'"\n"\
 '--------------------------------------------'"\n"\
-'yobiwebusername='$yobiwebusername"\n"\
-'ftppasswd='$ftppasswd"\n\n"\
+'yobiweb_user_email='$yobiweb_user_email"\n"\
+'yobiweb_user_pass='$yobiweb_user_pass"\n\n"\
  >> $outputfilepath
 
 cat $outputfilepath
