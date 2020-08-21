@@ -21,19 +21,6 @@ rpcpassword=$2
 db_admin_user=$3
 db_admin_pass=$4
 
-if ! id $linux_admin_user >/dev/null 2>&1; then
-	# Setting up user account
-	echo '----------------------------------------'
-	echo -e 'SETTING UP '$linux_admin_user' USER ACCOUNT:'
-	echo '----------------------------------------'
-
-	passwd=`< /dev/urandom tr -dc A-Za-z0-9 | head -c20; echo`
-	sudo useradd -d /home/$linux_admin_user -s /bin/bash -m $linux_admin_user
-	sudo usermod -a -G sudo $linux_admin_user
-	echo $linux_admin_user":"$passwd | sudo chpasswd
-	echo "$linux_admin_user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers    
-fi
-
 homedir=`su -l $linux_admin_user -c 'cd ~ && pwd'`
 
 echo '----------------------------------------'
@@ -48,7 +35,7 @@ sudo pip install --upgrade pip
 
 wget https://pypi.python.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz
 tar -xvzf pycrypto-2.6.1.tar.gz
-cd pycrypto*
+cd pycrypto-2.6.1
 sudo python setup.py install
 cd ..
 
@@ -234,7 +221,7 @@ sudo sed -ie 's/EMAIL_PROVIDER_API_KEY =.*;/EMAIL_PROVIDER_API_KEY = "'$sendgrid
 ###
 ## INSTALLING & CONFIGURING HASHCHAIN
 ###
-git clone https://github.com/Primechain/hashchain.git
+git clone https://github.com/srips1990/hashchain.git
 
 # Configuring Hashchain
 sudo sed -ie 's/RPC_USER =.*;/RPC_USER = "'$rpcuser'";/g' $webServerActiveDirectory/hashchain/resources.php

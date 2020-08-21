@@ -21,4 +21,6 @@ sudo apt-get -y install php7.0
 sudo apt-get -y install php7.0-mysql
 
 # restart Apache
-sudo service apache2 restart
+sudo sed -i -e 's,PrivateTmp=true,PrivateTmp=false\nNoNewPrivileges=yes,g' /lib/systemd/system/apache2.service
+sudo systemctl daemon-reload
+sudo systemctl restart apache2

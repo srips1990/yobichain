@@ -28,7 +28,7 @@ To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running Ubunt
 
 **Step 1.**  Install git and clone the yobichain repository
 
-    sudo git clone https://github.com/Primechain/yobichain
+    sudo git clone https://github.com/srips1990/yobichain
 	
 **Step 2.** Navigate to the relevant directory.
 

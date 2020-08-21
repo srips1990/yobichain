@@ -14,6 +14,7 @@ ftppasswd=`< /dev/urandom tr -dc A-Za-z0-9 | head -c20; echo`
 rpcuser=`< /dev/urandom tr -dc A-Za-z0-9 | head -c15; echo`
 rpcpassword=`< /dev/urandom tr -dc A-Za-z0-9 | head -c20; echo`
 
+bash -e create_linux_admin_user.sh
 bash -e hardening.sh
 bash -e lamp.sh $db_root_pass
 bash -e phpmyadmin.sh
