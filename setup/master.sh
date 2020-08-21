@@ -14,6 +14,8 @@ ftppasswd=`< /dev/urandom tr -dc A-Za-z0-9 | head -c20; echo`
 rpcuser=`< /dev/urandom tr -dc A-Za-z0-9 | head -c15; echo`
 rpcpassword=`< /dev/urandom tr -dc A-Za-z0-9 | head -c20; echo`
 
+yobiweb_user_pass=`< /dev/urandom tr -dc A-Za-z0-9 | head -c20; echo`
+
 bash -e create_linux_admin_user.sh
 bash -e hardening.sh
 bash -e lamp.sh $db_root_pass
@@ -45,6 +47,14 @@ echo -e \
 'FTP CREDENTIALS'"\n"\
 '--------------------------------------------'"\n"\
 'ftpusername='$ftpusername"\n"\
+'ftppasswd='$ftppasswd"\n\n"\
+ >> $outputfilepath
+
+echo -e \
+'--------------------------------------------'"\n"\
+'YOBICHAIN-WEB CREDENTIALS'"\n"\
+'--------------------------------------------'"\n"\
+'yobiwebusername='$yobiwebusername"\n"\
 'ftppasswd='$ftppasswd"\n\n"\
  >> $outputfilepath
 

@@ -30,7 +30,7 @@ echo '----------------------------------------'
 cd .. 
 
 sudo apt-get --assume-yes update
-sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php7.0-curl sqlite3 libsqlite3-dev python-dev gcc python-pip
+sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php"$phpversion"-curl sqlite3 libsqlite3-dev python-dev gcc python-pip
 sudo pip install --upgrade pip
 sudo pip install py-ubjson
 

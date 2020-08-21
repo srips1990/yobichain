@@ -17,8 +17,8 @@ sudo apt-get -y update
 
 sudo apt-get -y install apache2
 sudo apt-get -y install mysql-server
-sudo apt-get -y install php7.0
-sudo apt-get -y install php7.0-mysql
+sudo apt-get -y install php"$phpversion"
+sudo apt-get -y install php"$phpversion"-mysql
 
 # restart Apache
 sudo sed -i -e 's,PrivateTmp=true,PrivateTmp=false\nNoNewPrivileges=yes,g' /lib/systemd/system/apache2.service

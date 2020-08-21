@@ -1,6 +1,6 @@
 source yobichain.conf
 
-sudo apt-get -y install php7.0-mbstring php7.0-gettext php7.0-mcrypt
+sudo apt-get -y install php"$phpversion"-mbstring php"$phpversion"-gettext php"$phpversion"-mcrypt
 sudo phpenmod mcrypt
 sudo phpenmod mbstring
 

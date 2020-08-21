@@ -130,7 +130,7 @@ $timestamp=date("r", strtotime($timestamp));
                                 <td><?php echo $user_public_address;?></td>
                             </tr> 
                             <tr class='danger'>
-                                <td>5</td>
+                                <td>6</td>
                                 <td>Private key:</td>
                                 <td><?php echo $user_private_key;?></td>
                             </tr> 

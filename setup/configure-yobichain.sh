@@ -5,12 +5,13 @@ source yobichain.conf
 db_root_pass=$1
 db_admin_user=$2
 db_admin_pass=$3
+yobiweb_user_pass=$4
 
 homedir=`su -l $linux_admin_user -c 'cd ~ && pwd'`
 source $homedir/.multichain/$chainname/multichain.conf
 
 user_id=1
-user_password_hash=`php -r 'echo password_hash("'$default_user_pass'",PASSWORD_BCRYPT);'`
+user_password_hash=`php -r 'echo password_hash("'$yobiweb_user_pass'",PASSWORD_BCRYPT);'`
 
 user_addr=`curl --user $rpcuser:$rpcpassword --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnewaddress", "params": [] }' -H 'content-type: text/json;' http://127.0.0.1:$rpcport | jq -r '.result'`
 
@@ -40,6 +41,8 @@ mysql --user=root --password=$db_root_pass $db_name < $db_file_name
 mysql -u root -p$db_root_pass -Bse "CREATE USER IF NOT EXISTS '"$db_admin_user"'@'localhost' IDENTIFIED BY '"$db_admin_pass"';GRANT ALL PRIVILEGES ON \`"$db_name"\`. * TO '"$db_admin_user"'@'localhost';FLUSH PRIVILEGES;"
 
 mysql -u root -p$db_root_pass $db_name -Bse 'SET GLOBAL FOREIGN_KEY_CHECKS=1'
+
+mysql -u root -p$db_root_pass $db_name -Bse "INSERT INTO user_masterlist (user_id, user_name, user_email, user_password, checked, user_public_address, user_public_key, is_deleted) values("$user_id",'"$yobiweb_user_name"','"$yobiweb_user_email"','"$user_password_hash"','y','"$user_addr"','"$user_pubkey"','n')"
 
 echo ''
 echo ''
