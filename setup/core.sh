@@ -32,6 +32,7 @@ cd ..
 sudo apt-get --assume-yes update
 sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php7.0-curl sqlite3 libsqlite3-dev python-dev gcc python-pip
 sudo pip install --upgrade pip
+sudo pip install py-ubjson
 
 wget https://pypi.python.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz
 tar -xvzf pycrypto-2.6.1.tar.gz
@@ -40,7 +41,7 @@ sudo python setup.py install
 cd ..
 
 ## Configuring PHP-Curl
-sudo sed -ie 's/;extension=php_curl.dll/extension=php_curl.dll/g' $phpinipath
+sudo sed -i 's/;extension=php_curl.dll/extension=php_curl.dll/g' $phpinipath
 
 sudo service apache2 restart
 
@@ -84,21 +85,21 @@ sudo bash -c 'cp multichain-'$multichainVersion'*/multichain* /usr/local/bin/'
 
 su -l $linux_admin_user -c  'multichain-util create '$chainname $protocol
 
-su -l $linux_admin_user -c "sed -ie 's/.*root-stream-open =.*\#/root-stream-open = false     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*mining-requires-peers =.*\#/mining-requires-peers = true     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*initial-block-reward =.*\#/initial-block-reward = 0     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*first-block-reward =.*\#/first-block-reward = -1     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*skip-pow-check =.*\#/skip-pow-check = true     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*target-adjust-freq =.*\#/target-adjust-freq = -1     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*max-std-tx-size =.*\#/max-std-tx-size = 100000000     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*max-std-op-returns-count =.*\#/max-std-op-returns-count = 1024     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*max-std-op-return-size =.*\#/max-std-op-return-size = 8388608     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*max-std-op-drops-count =.*\#/max-std-op-drops-count = 100     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*max-std-element-size =.*\#/max-std-element-size = 32768     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*default-network-port =.*\#/default-network-port = '$networkport'     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*default-rpc-port =.*\#/default-rpc-port = '$rpcport'     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*chain-name =.*\#/chain-name = '$chainname'     #/g' $homedir/.multichain/$chainname/params.dat"
-su -l $linux_admin_user -c " sed -ie 's/.*protocol-version =.*\#/protocol-version = '$protocol'     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*root-stream-open =.*\#/root-stream-open = false     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*mining-requires-peers =.*\#/mining-requires-peers = true     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*initial-block-reward =.*\#/initial-block-reward = 0     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*first-block-reward =.*\#/first-block-reward = -1     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*skip-pow-check =.*\#/skip-pow-check = true     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*target-adjust-freq =.*\#/target-adjust-freq = -1     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*max-std-tx-size =.*\#/max-std-tx-size = 100000000     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*max-std-op-returns-count =.*\#/max-std-op-returns-count = 1024     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*max-std-op-return-size =.*\#/max-std-op-return-size = 8388608     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*max-std-op-drops-count =.*\#/max-std-op-drops-count = 100     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*max-std-element-size =.*\#/max-std-element-size = 32768     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*default-network-port =.*\#/default-network-port = '$networkport'     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*default-rpc-port =.*\#/default-rpc-port = '$rpcport'     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -i 's/.*chain-name =.*\#/chain-name = '$chainname'     #/g' $homedir/.multichain/$chainname/params.dat"
+su -l $linux_admin_user -c " sed -i 's/.*protocol-version =.*\#/protocol-version = '$protocol'     #/g' $homedir/.multichain/$chainname/params.dat"
 
 su -l $linux_admin_user -c "echo rpcuser='$rpcuser' > $homedir/.multichain/$chainname/multichain.conf"
 su -l $linux_admin_user -c "echo rpcpassword='$rpcpassword' >> $homedir/.multichain/$chainname/multichain.conf"
@@ -202,20 +203,20 @@ cd $webServerActiveDirectory	# Changing current directory to web server's root d
 app_directory=$webServerActiveDirectory'/yobichain-web'
 
 # Configuring Yobichain
-sudo sed -ie 's/$CHAIN_NAME =.*;/$CHAIN_NAME = "'$chainname'";/g' $app_directory/primechain_functions/config.php
-sudo sed -ie 's/self::$PORT =.*;/self::$PORT = "'$explorerport'";/g' $app_directory/primechain_functions/config.php
-sudo sed -ie 's/RPC_USER =.*;/RPC_USER = "'$rpcuser'";/g' $app_directory/primechain_functions/config.php
-sudo sed -ie 's/RPC_PASSWORD =.*;/RPC_PASSWORD = "'$rpcpassword'";/g' $app_directory/primechain_functions/config.php
-sudo sed -ie 's/RPC_PORT =.*;/RPC_PORT = "'$rpcport'";/g' $app_directory/primechain_functions/config.php
+sudo sed -i 's/$CHAIN_NAME =.*;/$CHAIN_NAME = "'$chainname'";/g' $app_directory/primechain_functions/config.php
+sudo sed -i 's/self::$PORT =.*;/self::$PORT = "'$explorerport'";/g' $app_directory/primechain_functions/config.php
+sudo sed -i 's/RPC_USER =.*;/RPC_USER = "'$rpcuser'";/g' $app_directory/primechain_functions/config.php
+sudo sed -i 's/RPC_PASSWORD =.*;/RPC_PASSWORD = "'$rpcpassword'";/g' $app_directory/primechain_functions/config.php
+sudo sed -i 's/RPC_PORT =.*;/RPC_PORT = "'$rpcport'";/g' $app_directory/primechain_functions/config.php
 
-sudo sed -ie 's/DB_HOST_NAME =.*;/DB_HOST_NAME = "'$db_host_name'";/g' $app_directory/primechain_functions/config.php
-sudo sed -ie 's/DB_USER_NAME =.*;/DB_USER_NAME = "'$db_admin_user'";/g' $app_directory/primechain_functions/config.php
-sudo sed -ie 's/DB_PASSWORD =.*;/DB_PASSWORD = "'$db_admin_pass'";/g' $app_directory/primechain_functions/config.php
-sudo sed -ie 's/yobichain-db/'$db_name'/g' $app_directory/primechain_functions/config.php
+sudo sed -i 's/DB_HOST_NAME =.*;/DB_HOST_NAME = "'$db_host_name'";/g' $app_directory/primechain_functions/config.php
+sudo sed -i 's/DB_USER_NAME =.*;/DB_USER_NAME = "'$db_admin_user'";/g' $app_directory/primechain_functions/config.php
+sudo sed -i 's/DB_PASSWORD =.*;/DB_PASSWORD = "'$db_admin_pass'";/g' $app_directory/primechain_functions/config.php
+sudo sed -i 's/yobichain-db/'$db_name'/g' $app_directory/primechain_functions/config.php
 
-sudo sed -ie 's/SMS_PROVIDER_API_KEY =.*;/SMS_PROVIDER_API_KEY = "'$sendinblue_api_key'";/g' $app_directory/primechain_functions/config.php
+sudo sed -i 's/SMS_PROVIDER_API_KEY =.*;/SMS_PROVIDER_API_KEY = "'$sendinblue_api_key'";/g' $app_directory/primechain_functions/config.php
 
-sudo sed -ie 's/EMAIL_PROVIDER_API_KEY =.*;/EMAIL_PROVIDER_API_KEY = "'$sendgrid_api_key'";/g' $app_directory/primechain_functions/config.php
+sudo sed -i 's/EMAIL_PROVIDER_API_KEY =.*;/EMAIL_PROVIDER_API_KEY = "'$sendgrid_api_key'";/g' $app_directory/primechain_functions/config.php
 
 
 ###
@@ -224,10 +225,10 @@ sudo sed -ie 's/EMAIL_PROVIDER_API_KEY =.*;/EMAIL_PROVIDER_API_KEY = "'$sendgrid
 git clone https://github.com/srips1990/hashchain.git
 
 # Configuring Hashchain
-sudo sed -ie 's/RPC_USER =.*;/RPC_USER = "'$rpcuser'";/g' $webServerActiveDirectory/hashchain/resources.php
-sudo sed -ie 's/RPC_PASSWORD =.*;/RPC_PASSWORD = "'$rpcpassword'";/g' $webServerActiveDirectory/hashchain/resources.php
-sudo sed -ie 's/RPC_PORT =.*;/RPC_PORT = "'$rpcport'";/g' $webServerActiveDirectory/hashchain/resources.php
-sudo sed -ie 's/MANAGER_ADDRESS =.*;/MANAGER_ADDRESS = "'$addr'";/g' $webServerActiveDirectory/hashchain/resources.php
+sudo sed -i 's/RPC_USER =.*;/RPC_USER = "'$rpcuser'";/g' $webServerActiveDirectory/hashchain/resources.php
+sudo sed -i 's/RPC_PASSWORD =.*;/RPC_PASSWORD = "'$rpcpassword'";/g' $webServerActiveDirectory/hashchain/resources.php
+sudo sed -i 's/RPC_PORT =.*;/RPC_PORT = "'$rpcport'";/g' $webServerActiveDirectory/hashchain/resources.php
+sudo sed -i 's/MANAGER_ADDRESS =.*;/MANAGER_ADDRESS = "'$addr'";/g' $webServerActiveDirectory/hashchain/resources.php
 
 ###
 ## INSTALLING & CONFIGURING MULTICHAIN EXPLORER
@@ -240,12 +241,12 @@ sudo python setup.py install
 
 sudo bash -c 'cp '$homedir'/multichain-explorer/chain1.example.conf '$homedir'/multichain-explorer/'$chainname'.conf'
 
-sudo sed -ie 's/MultiChain chain1/'$explorerDisplayName'/g' $homedir/multichain-explorer/$chainname.conf
-sudo sed -ie 's/2750/'$explorerport'/g' $homedir/multichain-explorer/$chainname.conf
-sudo sed -ie 's/chain1/'$chainname'/g' $homedir/multichain-explorer/$chainname.conf
-sudo sed -ie 's/host localhost.*\#/host  localhost 	#/g' $homedir/multichain-explorer/$chainname.conf
-sudo sed -ie 's/host localhost/host 0.0.0.0/g' $homedir/multichain-explorer/$chainname.conf
-sudo sed -ie 's/chain1.explorer.sqlite/'$chainname'.explorer.sqlite/g' $homedir/multichain-explorer/$chainname.conf
+sudo sed -i 's/MultiChain chain1/'$explorerDisplayName'/g' $homedir/multichain-explorer/$chainname.conf
+sudo sed -i 's/2750/'$explorerport'/g' $homedir/multichain-explorer/$chainname.conf
+sudo sed -i 's/chain1/'$chainname'/g' $homedir/multichain-explorer/$chainname.conf
+sudo sed -i 's/host localhost.*\#/host  localhost 	#/g' $homedir/multichain-explorer/$chainname.conf
+sudo sed -i 's/host localhost/host 0.0.0.0/g' $homedir/multichain-explorer/$chainname.conf
+sudo sed -i 's/chain1.explorer.sqlite/'$chainname'.explorer.sqlite/g' $homedir/multichain-explorer/$chainname.conf
 
 su -l $linux_admin_user -c "python -m Mce.abe --config "$homedir"/multichain-explorer/"$chainname".conf --commit-bytes 100000 --no-serve"
 sleep 5

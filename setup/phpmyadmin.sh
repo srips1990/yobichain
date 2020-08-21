@@ -15,7 +15,7 @@ sudo mv phpMyAdmin* mysql_dashboard
 cd mysql_dashboard
 sudo cp config.sample.inc.php config.inc.php
 sudo chmod -R 755 $webServerActiveDirectory/mysql_dashboard
-sudo sed -ie 's/localhost/'$db_host_name'/g' config.inc.php
+sudo sed -i 's/localhost/'$db_host_name'/g' config.inc.php
 echo ''
 echo ''
 echo '----------'

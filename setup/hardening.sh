@@ -64,7 +64,7 @@ sudo sysctl -p
 # echo -e 'DISABLING IRQ BALANCE:'
 # echo '----------------------------------------'
 
-# sudo sed -ie 's/ENABLED=.*/ENABLED="0"/g' /etc/default/irqbalance
+# sudo sed -i 's/ENABLED=.*/ENABLED="0"/g' /etc/default/irqbalance
 
 
 sleep 3

@@ -39,12 +39,12 @@ echo '----------------------------------------'
 if ! id $ftpusername >/dev/null 2>&1; then
 	sudo useradd -d $webServerActiveDirectory $ftpusername
 	echo $ftpusername":"$ftppasswd | sudo chpasswd
-	sudo sed -ie 's/.*anonymous_enable=.*/anonymous_enable=NO/g' /etc/vsftpd.conf
-	sudo sed -ie 's/.*local_enable=.*/local_enable=YES/g' /etc/vsftpd.conf
-	sudo sed -ie 's/.*write_enable=.*/write_enable=YES/g' /etc/vsftpd.conf
-	sudo sed -ie 's/.*chroot_local_user=.*/chroot_local_user=YES/g' /etc/vsftpd.conf
-	sudo sed -ie 's/.*chroot_list_enable=.*/chroot_list_enable=YES/g' /etc/vsftpd.conf
-	sudo sed -ie 's/.*chroot_list_file=.*/chroot_list_file=\/etc\/vsftpd.chroot_list/g' /etc/vsftpd.conf
+	sudo sed -i 's/.*anonymous_enable=.*/anonymous_enable=NO/g' /etc/vsftpd.conf
+	sudo sed -i 's/.*local_enable=.*/local_enable=YES/g' /etc/vsftpd.conf
+	sudo sed -i 's/.*write_enable=.*/write_enable=YES/g' /etc/vsftpd.conf
+	sudo sed -i 's/.*chroot_local_user=.*/chroot_local_user=YES/g' /etc/vsftpd.conf
+	sudo sed -i 's/.*chroot_list_enable=.*/chroot_list_enable=YES/g' /etc/vsftpd.conf
+	sudo sed -i 's/.*chroot_list_file=.*/chroot_list_file=\/etc\/vsftpd.chroot_list/g' /etc/vsftpd.conf
 	sudo bash -c 'echo '$ftpusername' > /etc/vsftpd.chroot_list'
 	sudo chown $ftpusername: $webServerActiveDirectory
 	sudo chmod u+w $webServerActiveDirectory
