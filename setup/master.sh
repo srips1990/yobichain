@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source yobichain.conf
+
 outputfilepath=~/yobichain.out
 
 rm -rf $outputfilepath
