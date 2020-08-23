@@ -25,40 +25,39 @@ bash -e phpmyadmin.sh
 bash -e ftp.sh $ftpusername $ftppasswd
 bash -e core.sh $rpcuser $rpcpassword $db_admin_user $db_admin_pass
 bash -e configure-yobichain.sh $db_root_pass $db_admin_user $db_admin_pass $yobiweb_user_pass
+bash -e reg_startup_script.sh
 
-echo -e \
-'--------------------------------------------'"\n"\
-'API CREDENTIALS'"\n"\
-'--------------------------------------------'"\n"\
-'rpcuser='$rpcuser"\n"\
-'rpcpassword='$rpcpassword"\n\n"\
- > $outputfilepath
+cat > $outputfilepath << EOF
 
-echo -e \
-'--------------------------------------------'"\n"\
-'MYSQL CREDENTIALS'"\n"\
-'--------------------------------------------'"\n"\
-'mysql_root_user_name=root'"\n"\
-'mysql_root_pass='$db_root_pass"\n"\
-'yobichain_db_admin_user='$db_admin_user"\n"\
-'yobichain_db_admin_pass='$db_admin_pass"\n\n"\
- >> $outputfilepath
+--------------------------------------------
+API CREDENTIALS
+--------------------------------------------
+rpcuser=$rpcuser
+rpcpassword=$rpcpassword
 
-echo -e \
-'--------------------------------------------'"\n"\
-'FTP CREDENTIALS'"\n"\
-'--------------------------------------------'"\n"\
-'ftpusername='$ftpusername"\n"\
-'ftppasswd='$ftppasswd"\n\n"\
- >> $outputfilepath
 
-echo -e \
-'--------------------------------------------'"\n"\
-'YOBICHAIN-WEB CREDENTIALS'"\n"\
-'--------------------------------------------'"\n"\
-'yobiweb_user_email='$yobiweb_user_email"\n"\
-'yobiweb_user_pass='$yobiweb_user_pass"\n\n"\
- >> $outputfilepath
+--------------------------------------------
+MYSQL CREDENTIALS
+--------------------------------------------
+mysql_root_user_name=root
+mysql_root_pass=$db_root_pass
+yobichain_db_admin_user=$db_admin_user
+yobichain_db_admin_pass=$db_admin_pass
+
+
+--------------------------------------------
+FTP CREDENTIALS
+--------------------------------------------
+ftpusername=$ftpusername
+ftppasswd=$ftppasswd
+
+--------------------------------------------
+YOBICHAIN-WEB CREDENTIALS
+--------------------------------------------
+yobiweb_user_email=$yobiweb_user_email
+yobiweb_user_pass=$yobiweb_user_pass
+
+EOF
 
 cat $outputfilepath
  
