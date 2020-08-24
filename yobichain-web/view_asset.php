@@ -22,7 +22,7 @@
 		    </thead>
 		    <tbody>
 				<?php
-					$asset_name_list = $crud_engine->listAssetsNamesForUser($user_id);
+					$asset_name_list = $crud_engine->listAllAssetsNames();
 					$addressBalances = $blockchain_engine->getAssetBalancesForAddress($user->user_public_address);
 					$addressBalancesIndexed = array();
 					foreach ($addressBalances as $balance) {
@@ -42,17 +42,19 @@
 						<tr class='odd gradeX'>
 							<td>".$asset->name."</td>
 							<td>".$asset->quantity."</td>
-							<td>".$addressBalancesIndexed[$asset->asset_ref]['qty']."</td>
+							<td>".((isset($addressBalancesIndexed[$asset->asset_ref]) && isset($addressBalancesIndexed[$asset->asset_ref]['qty'])) ? $addressBalancesIndexed[$asset->asset_ref]['qty'] : 0)."</td>
 							<td>".$asset->type."</td>
 		                    <td>";
-		                    	if ($asset->type == Literals::ASSET_TYPE_CODES['OPEN']) 
-	                    		{ 
-	                    			echo "<a href='reissue_asset.php?asset_ref=".$asset->asset_ref."'><button type='button' class='btn btn-info'>Re-issue</button></a>";
-	                    		}
-		                    	else 
-	                    		{
-	                    			echo "<button type='button' class='btn btn-danger' disabled>Closed asset</button>";
-	                    		}
+		                    	if($crud_engine->doesAssetBelongToUser($asset->name, $user_id)) {
+									if ($asset->type == Literals::ASSET_TYPE_CODES['OPEN'])
+									{
+										echo "<a href='reissue_asset.php?asset_ref=".$asset->asset_ref."'><button type='button' class='btn btn-info'>Re-issue</button></a>";
+									}
+									else 
+									{
+										echo "<button type='button' class='btn btn-danger' disabled>Closed asset</button>";
+									}
+								}
 	                    	echo "</td>
 						</tr>";
 					}

@@ -59,10 +59,10 @@
 						<label>3. Ask asset </label>
 						<select id="asset_receive" name="asset_receive" class="form-control">
 							<?php
-								$user_asset_name_list = $crud_engine->listAssetsNamesForUser($user->user_id);
-								$user_assets = $blockchain_engine->getAssetsFullDetails($user_asset_name_list);
+								$asset_name_list = $crud_engine->listAllAssetsNames();
+								$all_assets_details = $blockchain_engine->getAssetsFullDetails($asset_name_list);
 
-								foreach ($user_assets as $asset) 
+								foreach ($all_assets_details as $asset)
 								{
 									echo "<option value='".$asset->name."'>".$asset->name."</option>";
 								}

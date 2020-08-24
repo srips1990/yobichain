@@ -848,6 +848,28 @@ Password reset - update password
 
 
 /*******************************************************************************************************************
+Get all Assets names as list
+*******************************************************************************************************************/
+
+		public function listAllAssetsNames()
+		{
+			$STM = $this->dbo->prepare("SELECT asset_name FROM asset_masterlist");
+
+			if (!$STM->execute())
+				return false;
+
+			$assets_array = $STM -> fetchAll(PDO::FETCH_ASSOC);
+			$assets_info = array();
+
+			foreach ($assets_array as $asset_item) {
+				$assets_info[] = $asset_item['asset_name'];
+			}
+
+			return $assets_info;
+		}
+
+
+/*******************************************************************************************************************
 Get Assets names list for an organization
 *******************************************************************************************************************/
 
