@@ -49,7 +49,7 @@
 				<div class="alert alert-info">  
 					<div class="form-group">
 						<label>2. Quantity </label>
-						<input id="quantity" name="quantity" type="number" class="form-control" value=1>
+						<input id="quantity" name="quantity" type="number" class="form-control" placeholder="1.0" step="0.0000001" min="0.0000001" max="10000000000" value=1>
 					</div>
 				</div>
 
