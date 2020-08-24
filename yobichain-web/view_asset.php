@@ -38,11 +38,15 @@
 
 					foreach ($assets as $asset) 
 					{
+						$user_asset_balance = ((isset($addressBalancesIndexed[$asset->asset_ref]) && isset($addressBalancesIndexed[$asset->asset_ref]['qty'])) ? $addressBalancesIndexed[$asset->asset_ref]['qty'] : 0);
+
+						$user_balance_color = (floatval($user_asset_balance) > 0.0) ? "green" : "red";
+
 						echo "
 						<tr class='odd gradeX'>
 							<td>".$asset->name."</td>
 							<td>".$asset->quantity."</td>
-							<td>".((isset($addressBalancesIndexed[$asset->asset_ref]) && isset($addressBalancesIndexed[$asset->asset_ref]['qty'])) ? $addressBalancesIndexed[$asset->asset_ref]['qty'] : 0)."</td>
+							<td>"."<div style='color:".$user_balance_color.";'><strong>".$user_asset_balance."</strong></div>"."</td>
 							<td>".$asset->type."</td>
 		                    <td>";
 		                    	if($crud_engine->doesAssetBelongToUser($asset->name, $user_id)) {
