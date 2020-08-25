@@ -7,6 +7,10 @@ source yobichain.conf
 db_root_pass=$1
 
 export DEBIAN_FRONTEND=noninteractive
+
+sudo sh -c "echo mysql-server mysql-server/root_password password "$db_root_pass" | debconf-set-selections"
+sudo sh -c "echo mysql-server mysql-server/root_password_again password "$db_root_pass" | debconf-set-selections"
+
 sudo sh -c "echo mysql-server-5.7 mysql-server/root_password password "$db_root_pass" | debconf-set-selections"
 sudo sh -c "echo mysql-server-5.7 mysql-server/root_password_again password "$db_root_pass" | debconf-set-selections"
 
