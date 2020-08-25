@@ -38,7 +38,7 @@ mysql -u root -p$db_root_pass -Bse 'DROP DATABASE IF EXISTS `'$db_name'`'
 mysql -u root -p$db_root_pass -Bse 'CREATE DATABASE IF NOT EXISTS `'$db_name'`'
 mysql --user=root --password=$db_root_pass $db_name < $db_file_name
 
-mysql -u root -p$db_root_pass -Bse "CREATE USER IF NOT EXISTS '"$db_admin_user"'@'localhost' IDENTIFIED BY '"$db_admin_pass"';GRANT ALL PRIVILEGES ON \`"$db_name"\`. * TO '"$db_admin_user"'@'localhost';FLUSH PRIVILEGES;"
+mysql -u root -p$db_root_pass -Bse "CREATE USER IF NOT EXISTS '"$db_admin_user"'@'localhost' IDENTIFIED WITH mysql_native_password BY '"$db_admin_pass"';GRANT ALL PRIVILEGES ON \`"$db_name"\`. * TO '"$db_admin_user"'@'localhost';FLUSH PRIVILEGES;"
 
 mysql -u root -p$db_root_pass $db_name -Bse 'SET GLOBAL FOREIGN_KEY_CHECKS=1'
 
