@@ -15,7 +15,7 @@ YobiChain is ideal for
 
 ## Installation
 
-To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running Ubuntu 18.04 x64. This section presumes that you have root access to the server mentioned above and want to install Yobichain for all users on the system.
+To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running either Ubuntu 18.04 x64 or Ubuntu 20.04 x64. This section presumes that you have root access to the server mentioned above and want to install Yobichain for all users on the system.
 
 **Step 1.**  Install git and clone the yobichain repository
 
