@@ -170,8 +170,8 @@ su -l $linux_admin_user -c  "multichain-cli "$chainname" createrawsendfrom "$add
 su -l $linux_admin_user -c  "multichain-cli "$chainname" createrawsendfrom "$addr" '{}' '[{\"create\":\"stream\",\"name\":\"proof_of_existence\",\"open\":false,\"details\":{\"purpose\":\"Stores Hashes\"}}]' send"
 
 
-# SUBSCRIBE STREAMS
-# --------- -------
+# SUBSCRIBING TO STREAMS
+# ----------- -- -------
 
 su -l $linux_admin_user -c  "multichain-cli "$chainname" subscribe asset_details"
 su -l $linux_admin_user -c  "multichain-cli "$chainname" subscribe offers_hex"
@@ -205,6 +205,15 @@ cd $webServerActiveDirectory	# Changing current directory to web server's root d
 ###
 ## INSTALLING & CONFIGURING Yobichain
 ###
+echo ''
+echo ''
+echo ''
+echo '-----------------------------------------------'
+echo -e 'INSTALLING & CONFIGURING YOBICHAIN.....'
+echo '-----------------------------------------------'
+echo ''
+echo ''
+
 app_directory=$webServerActiveDirectory'/yobichain-web'
 
 # Configuring Yobichain
@@ -227,6 +236,15 @@ sudo sed -i 's/EMAIL_PROVIDER_API_KEY =.*;/EMAIL_PROVIDER_API_KEY = "'$sendgrid_
 ###
 ## INSTALLING & CONFIGURING HASHCHAIN
 ###
+echo ''
+echo ''
+echo ''
+echo '-------------------------------------------------'
+echo -e 'INSTALLING & CONFIGURING HASHCHAIN.....'
+echo '-------------------------------------------------'
+echo ''
+echo ''
+
 git clone https://github.com/srips1990/hashchain.git
 
 # Configuring Hashchain
@@ -238,6 +256,15 @@ sudo sed -i 's/MANAGER_ADDRESS =.*;/MANAGER_ADDRESS = "'$addr'";/g' $webServerAc
 ###
 ## INSTALLING & CONFIGURING MULTICHAIN EXPLORER
 ###
+
+echo ''
+echo ''
+echo ''
+echo '--------------------------------------------------------'
+echo -e 'INSTALLING & CONFIGURING MULTICHAIN EXPLORER.....'
+echo '--------------------------------------------------------'
+echo ''
+echo ''
 
 cd $homedir
 git clone https://github.com/MultiChain/multichain-explorer.git

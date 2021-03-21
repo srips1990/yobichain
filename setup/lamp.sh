@@ -16,6 +16,15 @@ sudo sh -c "echo mysql-server-5.7 mysql-server/root_password_again password "$db
 
 
 # install the LAMP stack
+echo ''
+echo ''
+echo ''
+echo '------------------------------'
+echo -e 'INSTALLING LAMP...'
+echo '------------------------------'
+echo ''
+echo ''
+
 sudo apt-add-repository -y ppa:ondrej/php
 sudo apt-get -y update
 
@@ -25,6 +34,14 @@ sudo apt-get -y install php"$phpversion"
 sudo apt-get -y install php"$phpversion"-mysql
 
 # restart Apache
+echo ''
+echo ''
+echo ''
+echo '------------------------------'
+echo -e 'RESTARTING APACHE...'
+echo '------------------------------'
+echo ''
+echo ''
 sudo sed -i -e 's,PrivateTmp=true,PrivateTmp=false\nNoNewPrivileges=yes,g' /lib/systemd/system/apache2.service
 sudo systemctl daemon-reload
 sudo systemctl restart apache2
