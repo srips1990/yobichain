@@ -19,7 +19,20 @@ rpcpassword=`< /dev/urandom tr -dc A-Za-z0-9 | head -c20; echo`
 yobiweb_user_pass=`< /dev/urandom tr -dc A-Za-z0-9 | head -c20; echo`
 
 bash -e create_linux_admin_user.sh
-bash -e hardening.sh
+
+
+## Checking if hardening option is provided in command-line argument
+
+if [[ $# -gt 0 ]] ; then
+	if [[ $1 == true || $1 == false ]] ; then
+		hardening_enabled=$1
+	fi
+fi
+
+if $hardening_enabled ; then
+	bash -e hardening.sh
+fi
+
 bash -e lamp.sh $db_root_pass
 bash -e phpmyadmin.sh
 bash -e ftp.sh $ftpusername $ftppasswd
