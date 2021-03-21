@@ -34,7 +34,8 @@ sudo apt-get --assume-yes update
 sudo apt --assume-yes install python
 sudo apt-get --assume-yes install jq git vsftpd aptitude apache2-utils php"$phpversion"-curl sqlite3 libsqlite3-dev python-dev gcc
 
-curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+# curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
 sudo python2 get-pip.py
 sudo pip install --upgrade pip
 sudo pip install py-ubjson
