@@ -1,12 +1,12 @@
 <?php
 session_start();
-include_once("primechain_functions/error_reporting.php");
+include_once("yobichain_functions/error_reporting.php");
 
 $user_email = htmlspecialchars($_POST['user_email'], ENT_QUOTES);
 $random = htmlspecialchars($_POST['random'], ENT_QUOTES);
 $user_password = $_POST['user_password'];
 
-include_once("primechain_functions/crud_engine.php");
+include_once("yobichain_functions/crud_engine.php");
 $crudEngine = new crudEngine();
 
 // Forgot Password - is email and random correct

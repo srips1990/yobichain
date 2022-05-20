@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_destroy();
-include_once("primechain_functions/error_reporting.php");
+include_once("yobichain_functions/error_reporting.php");
 include_once("top.php");
 ?>
 </head>
@@ -15,7 +15,7 @@ include_once("top.php");
                     <div class="panel-heading">
                         <h3 class="panel-title">Reset password to Yobichain</h3>
                     </div>
-                    <div class="panel-body"><?php include_once('primechain_functions/message_display.php'); ?>
+                    <div class="panel-body"><?php include_once('yobichain_functions/message_display.php'); ?>
                         <form role="form" action="forgot_password_process.php" method="post">
                             <fieldset>
                                 <div class="form-group">

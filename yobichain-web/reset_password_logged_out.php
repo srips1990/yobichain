@@ -1,9 +1,9 @@
 <?php
 session_start();
 session_destroy();
-include_once("primechain_functions/error_reporting.php");
+include_once("yobichain_functions/error_reporting.php");
 
-include_once("primechain_functions/crud_engine.php");
+include_once("yobichain_functions/crud_engine.php");
 $crudEngine = new crudEngine();
 
 if(!isset($_GET['user_email'])) {
@@ -35,7 +35,7 @@ elseif ($isEmailRandomCorrect===true)
                             <div class='panel-body'>";
                                
                                 // for displaying notifications
-                                include_once('primechain_functions/message_display.php');
+                                include_once('yobichain_functions/message_display.php');
                                 echo "
                                 <form role='form' action='reset_password_logged_out_process.php' method='post'>
                                     <input type='hidden' name='user_email' value='$user_email'>

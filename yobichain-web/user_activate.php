@@ -1,14 +1,14 @@
 <?php
 
 session_start();
-include_once("primechain_functions/error_reporting.php");
-include_once("primechain_functions/helperFunctions.php");
+include_once("yobichain_functions/error_reporting.php");
+include_once("yobichain_functions/helperFunctions.php");
 
 try {
-	include_once("primechain_functions/blockchain_engine.php");
+	include_once("yobichain_functions/blockchain_engine.php");
 	$blockchain_engine = new blockchainEngine(); 
 
-	include_once("primechain_functions/crud_engine.php");
+	include_once("yobichain_functions/crud_engine.php");
 	$crud_engine = new crudEngine();
 	$crud_engine->beginTransaction();
 	// check if a user with this email and random string is pending activation
@@ -22,7 +22,7 @@ try {
 	{ 
 		// generate password, insert password hash in db and update db to set user as verified
 		$user_password = $crud_engine->random_str(12); // generate password
-		$user_password_hash=password_hash($user_password, PASSWORD_DEFAULT); // hash the passwordfor storing in db 
+		$user_password_hash=password_hash($user_password, PASSWORD_DEFAULT); // hash the password for storing in db 
 
 		// get user's name and ID for sending credentials email
 		$user = $crud_engine->getUserInfoForWelcomeEmail($user_email,$random, true);
@@ -76,7 +76,7 @@ try {
 	
 
 		// Email credentials to user
-		include_once("primechain_functions/sendgridemail/notification_grid.php");
+		include_once("yobichain_functions/sendgridemail/notification_grid.php");
 
 		$notificationEngine = new notificationEngine();
 		$sendLoginCredentials = $notificationEngine->sendLoginCredentials($user_email,$user->user_name,$user->user_id,$user_password);

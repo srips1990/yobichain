@@ -1,8 +1,8 @@
 <?php 
 	include_once("page_header.php");
-	include_once("primechain_functions/config.php");
-	include_once("primechain_functions/resources.php");
-	include_once("primechain_functions/blockchain_engine.php");
+	include_once("yobichain_functions/config.php");
+	include_once("yobichain_functions/resources.php");
+	include_once("yobichain_functions/blockchain_engine.php");
 	$crud_engine = new crudEngine();
 	$blockchain_engine = new blockchainEngine();
 

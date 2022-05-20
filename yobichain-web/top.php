@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Yobichain">
-    <meta name="author" content="Primechain Technologies Pvt. Ltd.">
+    <meta name="author" content="Cypher & D">
 
     <title>Yobichain</title>
 

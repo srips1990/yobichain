@@ -3,13 +3,13 @@ session_start();
 ob_start();
 $status=(isset($_SESSION['status']) ? $_SESSION['status'] : null); if (is_null($status) || $status!="loggedin") { header("location:login.php?msg=29");}
 
-include_once("primechain_functions/error_reporting.php");
+include_once("yobichain_functions/error_reporting.php");
 $user_id = $_SESSION['user_id'];
 
-include_once("primechain_functions/crud_engine.php");
+include_once("yobichain_functions/crud_engine.php");
 $crudEngine = new crudEngine();
 
-include_once("primechain_functions/blockchain_engine.php");
+include_once("yobichain_functions/blockchain_engine.php");
 $blockchainEngine = new blockchainEngine();
 
 // Insert user activity into logs
@@ -40,7 +40,7 @@ $getRoleTitle = $crudEngine->getRoleTitle($role_code);
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Yobichain">
-	<meta name="author" content="Primechain Technologies Pvt. Ltd.">
+	<meta name="author" content="Cypher & D">
 
 	<title><?php echo $getRoleTitle; ?></title>
 
@@ -130,7 +130,7 @@ $getRoleTitle = $crudEngine->getRoleTitle($role_code);
 
 			<div class="row">
 				<div class="col-lg-12">
-					<?php include_once('primechain_functions/message_display.php'); ?>   
+					<?php include_once('yobichain_functions/message_display.php'); ?>   
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<h4><?php echo $getRoleTitle; ?></h4>

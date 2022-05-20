@@ -1,6 +1,6 @@
 <?php 
     include("page_header.php");
-    include_once("primechain_functions/crud_engine.php");
+    include_once("yobichain_functions/crud_engine.php");
     $crud_engine = new crudEngine();
 	$target_user_id = $_SESSION['user_id'];
 	$target_user = $crud_engine->getUserFullDetails($target_user_id, true);

@@ -1,6 +1,6 @@
 <?php
 	
-	include_once __DIR__.'/../'.'primechain_functions/resources.php';
+	include_once __DIR__.'/../'.'yobichain_functions/resources.php';
 
 	/**
 	* Asset Details

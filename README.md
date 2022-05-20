@@ -25,7 +25,7 @@ To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running eithe
 
     cd yobichain/setup
 
-**Step 3.** Modify the values of the sendinblue_api_key and sendgrid_api_key parameters. Send-in-blue is used for transactional SMS (optional) and sendgrid is used for transactional emails.
+**Step 3.** You may optionally modify the values of the parameters `chainname`, `yobiweb_user_email` & `yobiweb_user_name`. You may also set the value of the `hardening_enabled` parameter to *true* in case you want to harden the operating system. Hardening is disabled by default. To save and exit the editor after making the changes, use `ctrl-X`, then `Y`, then `[ENTER]`
 
     sudo nano yobichain.conf
 	
@@ -47,15 +47,17 @@ To set up Yobichain, you will need 1 server (min 2 GB RAM, 2 CPUs) running eithe
 	
 **Step 9.** To create a new user, you may click on "Create new user" and register a user.
 
-**Step 10.** You'll receive an activation link on the registered email ID. Click on it to receive login credentials via email.
+**Step 10.** You'll be redirected to the login page where you can see the password.
     
     To access the Yobichain web application, visit 'http://<IP Address>yobichain-web'
 
-    To access Multichain Exporer, visit 'http://<IP Address>:2750'
+    To access Multichain Exporer, visit 'http://<IP Address>:4444'
 
     To access PHPMyAdmin, visit 'http://<IP Address>/mysql_dashboard'
     
     To access hashchain visit 'http://<IP Address>/hashchain'
+    
+    To access Multichain Web Demo visit 'http://<IP Address>/multichain-web-demo'
 
 ## Contributors
 

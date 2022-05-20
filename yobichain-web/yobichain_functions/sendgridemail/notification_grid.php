@@ -12,7 +12,7 @@
 
 		public function __construct()
 		{
-			$this->base_url = "http://".$_SERVER['HTTP_HOST']."/".WebServerParams::PRIMECHAIN_ROOT_DIR;
+			$this->base_url = "http://".$_SERVER['HTTP_HOST']."/".WebServerParams::YOBICHAIN_ROOT_DIR;
 			
 			$this->email_top = "<html><body>
 						<table style='background-color: #dcecf6; width: 100%; border: 0; padding: 0px 30px 0px 30px;'>
@@ -56,7 +56,7 @@ Email notification of successful login to the user
 			$params =  array( 
 				"to" => $user_email,
 				 "formname" => "Yobichain",
-				"from" => "info@primechain.in",
+				"from" => "info@sripathi.co.in",
 				"subject" => "Login from $ip",
 				"html" => "$this->email_top
 									<p>Hi $user_name!<br/><br/>There has been a successful login into your Yobichain account. The details are:</p>
@@ -111,7 +111,7 @@ Email password reset link
 			$params =  array(
 				 "to" => $user_email,
 				   "formname" =>  "Yobichain",
-			"from" => "info@primechain.in",
+			"from" => "info@sripathi.co.in",
 			"subject" => "Password reset instructions",
 			"html" => "$this->email_top
 								<p>Hi $user_name!<br/><br/>A password reset has been initiated for your Yobichain account. To reset your password, <a href='$this->base_url/reset_password_logged_out.php?user_email=$user_email&random=$random'>click here</a>.<br/>
@@ -155,7 +155,7 @@ SMS notification for user login
 			->setText('Hello '.$user->user_name.'! Your account was logged in from the IP address '.$ip_address.' at '. date('d-m-Y H:i:s')) // 160 characters per SMS.
 			->setTag('Yobichain')
 			->setType('transactional') // Two possible values: marketing or transactional.
-			->setCallback('http://www.primechain.in');
+			->setCallback('http://www.sripathi.co.in');
 			$res = $mailin->send();
 		}
 
@@ -177,7 +177,7 @@ Send activation email to newly created user
 			$params =  array(
 				 "to" => $user->user_email,
 				 "formname" => "Yobichain",
-				"from" => "info@primechain.in",
+				"from" => "info@sripathi.co.in",
 				"subject" => "Account activation <> " . $user->user_name,
 				"html" => $this->email_top . 
 							"<p>Hi " . $user->user_name."!<br/><br/>Welcome to Yobichain. Your details are:</p>
@@ -230,7 +230,7 @@ Send login credentials to newly created user
 			$params =  array(
 				 "to" => $user_email,
 				 "fromname" => "Yobichain",
-				"from" => "info@primechain.in",
+				"from" => "info@sripathi.co.in",
 				"subject" => "Login credentials <> $user_name",
 				"html" => "$this->email_top
 							<p>Hi $user_name!<br/><br/>This is what you need to login to Yobichain:</p>

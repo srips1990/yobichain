@@ -8,15 +8,11 @@ homedir=`su -l $linux_admin_user -c 'cd ~ && pwd'`
 
 cat > $homedir/$startup_script_name << EOF
 
-sudo su -l $linux_admin_user -c "multichaind $chainname -daemon"
+sudo su -l $linux_admin_user -c "multichaind $chainname -daemon -explorersupport=2"
 
 sleep 6
 
-sudo su -l $linux_admin_user -c "python -m Mce.abe --config $homedir/multichain-explorer/$chainname.conf --commit-bytes 100000 --no-serve"
-
-sleep 5
-
-sudo su -l $linux_admin_user -c "echo -ne '\n' | nohup python -m Mce.abe --config $homedir/multichain-explorer/$chainname.conf > /dev/null 2>/dev/null &"
+sudo su -l $linux_admin_user -c 'cd '$homedir'/'$mc_explorer_dir_name' && python3 -m explorer config.ini daemon'
 
 EOF
 

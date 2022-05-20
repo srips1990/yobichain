@@ -3,11 +3,11 @@
 	ob_start();
 	$status=(isset($_SESSION['status']) ? $_SESSION['status'] : null); if (is_null($status) || $status!="loggedin") { header("location:login.php?msg=29");}
 
-	include_once("primechain_functions/config.php");
-	include_once("primechain_functions/blockchain_engine.php");
-	include_once("primechain_functions/crud_engine.php");
-	include_once("primechain_functions/helperFunctions.php");
-	include_once("primechain_functions/resources.php");
+	include_once("yobichain_functions/config.php");
+	include_once("yobichain_functions/blockchain_engine.php");
+	include_once("yobichain_functions/crud_engine.php");
+	include_once("yobichain_functions/helperFunctions.php");
+	include_once("yobichain_functions/resources.php");
 	include_once("classes/classes.php");
 
 	$crud_engine = new crudEngine();

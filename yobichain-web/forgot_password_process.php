@@ -1,9 +1,9 @@
 <?php
 session_start();
-include_once("primechain_functions/error_reporting.php");
-include_once("primechain_functions/config.php");
+include_once("yobichain_functions/error_reporting.php");
+include_once("yobichain_functions/config.php");
 
-include_once("primechain_functions/crud_engine.php");
+include_once("yobichain_functions/crud_engine.php");
 $crudEngine = new crudEngine();
 
 $dbh = new PDO("mysql:host=".DBParams::DB_HOST_NAME.";dbname=".DBParams::DATABASES['YOBICHAIN'], DBParams::DB_USER_NAME, DBParams::DB_PASSWORD);
@@ -19,7 +19,7 @@ if ($doesEmailExist===false)
 
 else
 	{
-		include_once("primechain_functions/utilities_engine.php");
+		include_once("yobichain_functions/utilities_engine.php");
 		$utilitiesEngine = new utilitiesEngine();
 		
 		// Generate a random string
@@ -38,7 +38,7 @@ else
 			{
 				$user_name = $getDataForPasswordResetEmail['user_name']; $random = $getDataForPasswordResetEmail['random'];
 				// send password reset email
-				include_once("primechain_functions/sendgridemail/notification_grid.php");
+				include_once("yobichain_functions/sendgridemail/notification_grid.php");
 				$notificationEngine = new notificationEngine();
 				$action = $notificationEngine->sendPasswordResetEmail($user_email,$user_name,$random);
 

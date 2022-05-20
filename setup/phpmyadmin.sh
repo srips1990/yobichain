@@ -8,7 +8,7 @@ sudo systemctl restart apache2
 
 cd $webServerActiveDirectory
 sudo rm -rf $archiveFileName		# Removing existing archive file
-sudo wget $downloadPath/$archiveFileName
+sudo wget $phpmyadminDownloadPath/$archiveFileName
 sudo tar -xvzf $archiveFileName
 sudo rm -rf $archiveFileName
 sudo mv phpMyAdmin* mysql_dashboard

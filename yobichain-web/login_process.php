@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	include_once("primechain_functions/error_reporting.php");
-	include_once("primechain_functions/crud_engine.php");
-	include_once("primechain_functions/sendgridemail/notification_grid.php");
+	include_once("yobichain_functions/error_reporting.php");
+	include_once("yobichain_functions/crud_engine.php");
+	include_once("yobichain_functions/sendgridemail/notification_grid.php");
 
 	$crud_engine = new crudEngine();
 	$user_email = htmlspecialchars($_POST['user_email'], ENT_QUOTES);
@@ -21,8 +21,8 @@
 					$recordLoginInDB = $crud_engine->recordLoginInDB($user_details['user_id'],$ip,$browser);
 
 					// Email login notification to user
-					$notificationEngine = new notificationEngine();
-					$action = $notificationEngine->sendLoginNotification($ip,$browser,$user_email,$user_details['user_name']);
+					// $notificationEngine = new notificationEngine();
+					// $action = $notificationEngine->sendLoginNotification($ip,$browser,$user_email,$user_details['user_name']);
 
 					header( "location:view_dashboard.php");
 				}

@@ -15,7 +15,7 @@ include_once('top.php');
                     <div class="panel-body">
                         <?php 
                         // for displaying notifications
-                        include_once('primechain_functions/message_display.php'); 
+                        include_once('yobichain_functions/message_display.php'); 
                         ?><br/>
                         <form role="form" action="create_user_process.php" method="post">
                             <fieldset>

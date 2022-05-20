@@ -160,7 +160,8 @@ INSERT INTO `message_masterlist` (`message_id`, `message`, `alert`) VALUES
 (129, 'Quantity cannot be zero or negative!!', 'danger'),
 (130, 'Asset does not exist!!', 'danger'),
 (131, 'This asset is not re-issuable!!', 'danger'),
-(132, 'Transaction failed!!', 'danger');
+(132, 'Transaction failed!!', 'danger'),
+(133, 'User created successfully. Your password is ', 'success');
 
 -- --------------------------------------------------------
 
