@@ -738,7 +738,7 @@ Get details of user's previous login
 
 		public function usersPreviousLoginDetails($user_id)
 		{
-	        $STM = $this->dbo->prepare("SELECT ip, browser, timestamp FROM login WHERE user_id=:user_id ORDER BY timestamp DESC LIMIT 1,1");
+	        $STM = $this->dbo->prepare("SELECT ip, browser, timestamp FROM login WHERE user_id=:user_id ORDER BY timestamp DESC LIMIT 0,1");
 	        $STM->bindParam(":user_id", $user_id);
 
 			if (!$STM->execute())
