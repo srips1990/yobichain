@@ -32,7 +32,7 @@
 
 							foreach ($uploads as $upload) {
 								$txID = $upload['txid'];
-								$file_hash = $upload['key'];
+								$file_hash = $upload['keys'][0];
 								$time = $upload['time'];
 								$description = json_decode(hex2bin($upload['data']), true)[Literals::UPLOAD_FIELD_NAMES['DESCRIPTION']];
 

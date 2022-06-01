@@ -35,7 +35,7 @@
 		$file_bin_data = file_to_txout_bin($target_file['name'], $target_file['type'], $file_bin_data);
 
 		$target_file_hash = hash_file('sha256', $target_file_path);
-		unlink($target_file);
+		unlink($target_file_path);
 
 		$txID = $blockchain_engine->uploadDocument($user->user_public_address, $target_file_hash, array('description'=> $file_description) , $file_bin_data);
 
