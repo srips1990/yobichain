@@ -43,5 +43,6 @@ echo '------------------------------'
 echo ''
 echo ''
 sudo sed -i -e 's,PrivateTmp=true,PrivateTmp=false\nNoNewPrivileges=yes,g' /lib/systemd/system/apache2.service
-sudo systemctl daemon-reload
-sudo systemctl restart apache2
+# sudo systemctl daemon-reload
+# sudo systemctl restart apache2
+service apache2 restart
